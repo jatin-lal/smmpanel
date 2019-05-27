@@ -113,3 +113,22 @@ a, input, button, textarea, select{
 }
 
 .g-recaptcha{width: 304px;margin: 0 auto 20px auto;}
+
+@media (max-width: 720px) {
+	#nav{padding: 0 10px;
+		.container{width: 100%;padding: 0 10px;box-sizing: border-box;}
+	}
+	#home-features{
+		.container{width: 100%;padding: 0 10px;box-sizing: border-box;}
+		.three-col{width: 100%;}
+	}
+	#challenges-section{
+		.container{width: 100%;padding: 0 10px;box-sizing: border-box;
+			.four-col{width: 100%;margin-bottom: 15px;}
+		}
+	}
+	#banner #banner-vertical #banner-container #banner-box{text-align: center;max-width: calc(100vw - 30px);margin: 0 auto;}
+	#banner #banner-vertical #banner-container{padding: 0 30vw;}
+	#steps-section #steps-container{width: calc(100vw - 30px);}
+	.right #login-username{display: none;}
+}
