@@ -1,0 +1,6 @@
+# To install Telethon Sync, run command
+
+pip install --no-cache --upgrade git+https://github.com/LonamiWebs/Telethon@sync
+
+
+# Other commands
