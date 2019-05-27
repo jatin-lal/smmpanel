@@ -1,0 +1,259 @@
+{% extends 'public/base.html' %}
+
+{% block title %}SMMPanel - World's fatest growing SMM Panel{% endblock %}
+
+{% block content %}
+<div id="banner">
+	<div id="banner-vertical">
+		<div id="banner-container">
+			<div id="banner-box">
+				<p class="banner-title">TestAgile - Making your products robust</p>
+				<p class="banner-content">Are you looking for an independent Software testing service provider company to help improve your IT application quality? After doing in-house research for testing solutions, are you still clueless about improving quality and performance of your IT application?</p>
+				{% if user.is_authenticated %}
+				<div class="go-to-dashboard">
+					<a href="{% url 'dashboard-home' %}">Go to dashboard <i class="fas fa-play"></i></a>
+				</div>
+				{% else %}
+				<div id="request-proposal-container">
+					<div id="request-proposal">
+						<p>Login to dashboard <i class="fas fa-play"></i></p>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% if not user.is_authenticated %}
+<div class="section" id="register-section">
+	<div class="container">
+		<form method="POST" action="{% url 'register' %}">
+	        {% csrf_token %}
+	        {{ form.as_p }}
+	        <div class="submit">
+	        	<button type="submit">Sign up</button>
+	        </div>
+	    </form>
+	</div>
+</div>
+{% endif %}
+<div class="section" id="home-features">
+	<p class="section-title">Our features</p>
+	<div class="container">
+		<div class="row">
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="fas fa-bullhorn"></i>
+						</div>
+						<div class="title">
+							<p>Automation Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Maximize ROI.</p></li>
+								<li><p>Swift, precise and productive results.</p></li>
+								<li><p>Reduced delivery time.</p></li>
+								<li><p>Comprehensive & end-to-end.</p></li>
+								<li><p>Experienced automation team.</p></li>
+								<li><p>Effective defect reporting.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="far fa-newspaper"></i>
+						</div>
+						<div class="title">
+							<p>Functional Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Specification-based testing.</p></li>
+								<li><p>Meet functional expectations, for users.</p></li>
+								<li><p>Ensure specifications compliance.</p></li>
+								<li><p>Verification and validation of apps.</p></li>
+								<li><p>Use the latest automation tools & frameworks and test against storms.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="fas fa-chart-bar"></i>
+						</div>
+						<div class="title">
+							<p>Performance Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Determine the responsiveness, reliability, and scalability of systems.</p></li>
+								<li><p>Identification of issue source.</p></li>
+								<li><p>Comprehensive analysis and recommendations for improvements.</p></li>
+								<li><p>Access production readiness.</p></li>
+								<li><p>Compare multiple systems and configs.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="far fa-file-alt"></i>
+						</div>
+						<div class="title">
+							<p>Regression Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Systematic, risk-free approach.</p></li>
+								<li><p>Maximum coverage.</p></li>
+								<li><p>Ensures integrity & intended functioning.</p></li>
+								<li><p>Increase productivity & efficiency.</p></li>
+								<li><p>Time to market, reduced.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="fas fa-blender-phone"></i>
+						</div>
+						<div class="title">
+							<p>Security Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Prevent potential breaches.</p></li>
+								<li><p>In-depth security assessment.</p></li>
+								<li><p>Effective risk management.</p></li>
+								<li><p>Increase business continuity.</p></li>
+								<li><p>Protect company reputation, clients, partners & third parties.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col three-col">
+				<div class="feature-box">
+					<div class="header">
+						<div class="icon">
+							<i class="fas fa-pencil-alt"></i>
+						</div>
+						<div class="title">
+							<p>Usability Testing Services</p>
+						</div>
+						<div class="text">
+							<ul>
+								<li><p>Captivate users.</p></li>
+								<li><p>Stimulate actual user behavior.</p></li>
+								<li><p>Incorporate user feedback.</p></li>
+								<li><p>Get expert support and guidance.</p></li>
+								<li><p>Results throughout the development lifecycle.</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section" id="challenges-section">
+	<p class="section-title">Challenges We Address</p>
+	<div class="container">
+		<div class="row">
+			<div class="col four-col">
+				<p class="title">Lack of efficient horizontal collaboration</p>
+				<p>We seamlessly integrate into your project team and effectively cooperate with your PMs, BAs and developers ensuring efficient horizontal cooperation to keep you up-to-date with the project workflow.</p>
+			</div>
+			<div class="col four-col">
+				<p class="title">Insufficient or excessive testing</p>
+				<p>Thanks to domain expertise, our specialists successfully balance testing efforts featuring expected system functionality and vulnerable points.</p>
+			</div>
+			<div class="col four-col">
+				<p class="title">Changing requirements</p>
+				<p>Successfully adapting to changes in your project requirements, we work swiftly and efficiently.</p>
+			</div>
+			<div class="col four-col">
+				<p class="title">Lack of control over testing</p>
+				<p>We provide all documents, reports and ad hoc information about project quality so that you stay in control of the testing process.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section" id="steps-section">
+	<div id="steps-container">
+		<div class="step">
+			<div class="step-vertical">
+				<p>Analyzing Project Requirements</p>
+			</div>
+		</div>
+		<div class="step">
+			<div class="step-vertical">
+				<p>Defining Key Points</p>
+			</div>
+		</div>
+		<div class="step">
+			<div class="step-vertical">
+				<p>Test Analysis and Design</p>
+			</div>
+		</div>
+		<div class="step">
+			<div class="step-vertical">
+				<p>Test Implementation</p>
+			</div>
+		</div>
+		<div class="step">
+			<div class="step-vertical">
+				<p>Result Analysis and Accountability</p>
+			</div>
+		</div>
+		<div class="step">
+			<div class="step-vertical">
+				<p>Maintenance and Support</p>
+			</div>
+		</div>
+	</div>
+	<div id="step-description">
+		<p class="steps-title">Software testing process</p>
+		<div class="list">
+			<ul>
+				<li><span>Analyzing project requirements.</span> Our testing team studies your project requirements. In case the requirements are insufficient, our QA specialists will help you improve them.</li>
+				<li><span>Defining key points of the project.</span> Closely cooperating with the rest of the project team, testing engineers define sets of conditions that allow the team to start, postpone, resume or stop the testing process.</li>
+				<li><span>Test analysis and design.</span> The testing team transforms checklists (test ideas) into test cases and test suites.</li>
+				<li><span>Test implementation.</span> The testing team runs test cases and timely provides the developers with the information on bugs and defects.</li>
+				<li><span>Result analysis and accountability.</span> The testing team provides a test summary report describing the results of testing efforts and software quality overview throughout a given cycle.</li>
+				<li><span>Maintenance and Support</span> The testing team provides support and maintenance for the testing of the Software or Mobile application.</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section" id="help-section">
+	<div class="container">
+		<div class="row --no-margins">
+		{% for i in 'abc' %}
+			<div class="col wide-col">
+				<p class="title">Lorem ipsum dolor sit amet</p>
+				<div class="content">
+					<p>Mauris eu blandit leo. Pellentesque sed neque fringilla, <span><a href="#">placerat risus</a></span> nec, finibus mauris. Ut quis odio pellentesque, finibus lacus vel, tincidunt arcu. Integer at sapien in velit luctus volutpat. </p>
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+</div>
+{% include 'public/components/login-modal.html' %}
+{% endblock %}

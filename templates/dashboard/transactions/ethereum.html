@@ -1,0 +1,29 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div id="dashboard-container">
+	<a id="back-button" href="{% url 'transactions' %}"><i class="fas fa-chevron-left"></i> Back</a>
+	<p class="card-title">Ethereum Transactions</p>
+	{% if transactions %}
+	<ul class="transactions-list-history">
+		{% for transaction in transactions %}
+		<li>
+			<p class="wallet-address"><b>Wallet Address :</b> <span>{{ transaction.wallet_id }}</span></p>
+			<p class="wallet-amount"><b>Paid :</b> <span> {{ transaction.amount }} BTC</span></p>
+			<p class="wallet-transaction-id"><b>Transaction ID :</b> {{ transaction.transaction_id }}</p>
+			<p class="wallet-time"><b>Transaction date</b> {{ transaction.created_at | date:"SHORT_DATE_FORMAT" }}</p>
+			<p class="remark"><b>{{ transaction.remark }}</b></p>
+			<div class="mrow transaction-status {{ transaction.status }}">
+				<p class="status-title">Status</p>
+				<p class="status-detail">{{ transaction.status }}</p>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<div class="add-guidelines">
+			<p><b>You have no transactions in Ethereum. You can add balance using Ethereum. Fill up the form  on page <a href="{% url 'add-ethereum' %}">Add funds using Ethereum</a></b></p>
+		</div>
+	{% endif %}
+</div>
+{% endblock %}

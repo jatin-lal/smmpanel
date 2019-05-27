@@ -1,0 +1,175 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<meta name="robots" content="index, follow" />
+		<link rel=”alternate” href=”http://example.com” hreflang=”en-us” />
+		<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
+		<!--<meta http-equiv="expires" content="43200" />-->
+		<meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+		<meta name="keywords" content="{% block keywords %}{% endblock %}" />
+		<meta name="description" content="{% block description %}{% endblock %}" />
+		<link rel="canonical" href="" />
+		<meta property="og:url" content="{{pageUrl}}">
+		<meta property="og:image" content="{{imageUrl}}">
+		<meta property="og:description" content="{{description}}">
+		<meta property="og:title" content="{{pageTitle}}">
+		<meta property="og:site_name" content="{{siteTitle}}">
+		<meta property="og:see_also" content="{{homepageUrl}}">
+		<meta itemprop="name" content="{{pageTitle}}">
+		<meta itemprop="description" content="{{description}}">
+		<meta itemprop="image" content="{{imageUrl}}">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:url" content="{{pageUrl}}">
+		<meta name="twitter:title" content="{{pageTitle}}">
+		<meta name="twitter:description" content="{{description}}">
+		<meta name="twitter:image" content="{{imageUrl}}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<style>#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff;display:table;z-index:15;transition:250ms;opacity:1}#preloader #preloader-vertical{display:table-cell;vertical-align:middle}#preloader .preloader-text{font-size:12px;font-weight:bold;margin-top:15px}#preloader.closing{opacity:0}</style>
+	</head>
+	<body bgcolor="#875F9A">
+		<div id="preloader">
+			<div id="preloader-vertical">
+				<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+		</div>
+		<div id="nav">
+			<div class="container">
+				<div class="row --no-margins">
+					<div class="left">
+						<div id="logo">
+							<a href="{% url 'home' %}">
+								<p>SMMPanel</p>
+							</a>
+						</div>
+					</div>
+					<div class="right">
+						{% if user.is_authenticated %}
+						<p id="login-username">Hi {{ user.get_username }} !</p>
+						<div id="logout-button">
+							<a href="{% url 'logout' %}">Logout <i class="fas fa-sign-out-alt"></i></a>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+		<div id="footer">
+			<div id="footer-skew"></div>
+			<div class="container">
+				<div class="row">
+					<div class="left" id="footer-other-content">
+						<div class="footer-description">
+							<div id="footer-logo">
+								<p>SMMPanel</p>
+							</div>
+							<p class="title">Software Testing and QA Services</p>
+							<div>
+								<p class="text">Based on 30 years of experience, our company offers all-encompassing software testing and QA services tailored to a project’s scope, deadline and budget. ScienceSoft’s QA and test teams provide end-to-end testing using modern tools and technologies, evaluate the actual software quality, validate its compliance with your requirements and end-user demands, help to solve urgent QA issues or reach a higher QA maturity level.</p>
+								<p class="text">Based on 30 years of experience, our company offers all-encompassing software testing and QA services tailored to a project’s scope, deadline and budget.</p>
+							</div>
+							<div id="social-links">
+								<ul>
+									<li>
+										<a href="https://www.facebook.com" target="_blank">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.twitter.com" target="_blank">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.youtube.com" target="_blank">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.pinterest.com" target="_blank">
+											<i class="fab fa-pinterest"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.linkedin.com" target="_blank">
+											<i class="fab fa-linkedin-in"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="left" id="footer-links">
+						<p class="title">Links</p>
+						<ul>
+							<li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+							<li><a href="{% url 'tandc' %}">Terms & Conditions</a></li>
+							<li><a href="{% url 'disclaimer' %}">Disclaimer</a></li>
+							<li><a href="{% url 'about-us' %}">About us</a></li>
+						</ul>
+						<p class="title">Links</p>
+						<ul>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Terms & Conditions</a></li>
+							<li><a href="#">Disclaimer</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+					<div class="left" id="footer-form-left">
+						<div id="footer-contact-form">
+							<div id="footer-contact-containet">
+								<div id="footer-contact-header">
+									<p>Contact us now</p>
+								</div>
+								<div id="contact-form">
+									<form action="/contact">
+										<div class="field">
+											<label for="project-name">Full name</label>
+											<input autocomplete="false" id="project-name" placeholder="Enter your full name" type="text" />
+										</div>
+										<div class="field">
+											<label for="project-name">Email ID</label>
+											<input autocomplete="false" id="project-name" placeholder="Enter Email ID" type="text" />
+										</div>
+										<div class="field">
+											<label for="project-name">Your query</label>
+											<textarea placeholder="Enter full query"></textarea>
+										</div>
+										<div class="field">
+											<input type="submit" value="Contact now">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer-copy">
+				<div class="container">
+					<div class="copy-footer">
+						<div class="left">
+							<i class="far fa-copyright"></i>
+							<p>2019 - SMMPanel.guru, All Rights Reserved</p>
+						</div>
+						<div class="right">
+							<a href="#">admin@smmpanel.guru</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://localhost:8080/main.js"></script>
+	</body>
+</html>

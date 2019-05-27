@@ -1,0 +1,70 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div id="dashboard-container">
+	<p class="card-title">Your wallet</p>
+	<p class="hint-text">Fill these fields and submit form to place an order. When you will place order, balance will be deducted. Please don't place quantity below minimum limit or above maximum limit specified.</p>
+	<div class="wallet-row">
+		<div class="wallet-col">
+			<div class="wallet-box" id="wallet-total-balance">
+				<p class="title">Total Balance</p>
+				<p class="value">{{ balance }} $</p>
+			</div>
+		</div>
+		<div class="wallet-col">
+			<div class="wallet-box" id="wallet-spent-amount">
+				<p class="title">Amount spent</p>
+				<p class="value">{{ spent }} $</p>
+			</div>
+		</div>
+	</div>
+	<ul id="wallet-discount">
+		<li>
+			<p>Get 525$ for payment of 500$</p>
+		</li>
+		<li>
+			<p>Get 1050$ for payment of 1000$</p>
+		</li>
+		<li>
+			<p>Get 1600$ for payment of 1500$</p>
+		</li>
+	</ul>
+	<p class="hint-text">Fill these fields and submit form to place an order. When you will place order, balance will be deducted. Please don't place quantity below minimum limit or above maximum limit specified.</p>
+	<div class="dashboard-options-list" id="dashboard-wallet-add">
+		<ul>
+			<li>
+				<div class="left">
+					<p>Add balance using PayPal</p>
+				</div>
+				<div class="right">
+					<a href="{% url 'add-paypal' %}">Pay now</a>
+				</div>
+			</li>
+			<li>
+				<div class="left">
+					<p>Add balance using PayTM</p>
+				</div>
+				<div class="right">
+					<a href="{% url 'add-paytm' %}">Pay now</a>
+				</div>
+			</li>
+			<li>
+				<div class="left">
+					<p>Add balance using Bitcoin</p>
+				</div>
+				<div class="right">
+					<a href="{% url 'add-bitcoin' %}">Pay now</a>
+				</div>
+			</li>
+			<li>
+				<div class="left">
+					<p>Add balance using Ethereum</p>
+				</div>
+				<div class="right">
+					<a href="{% url 'add-ethereum' %}">Pay now</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div id="dashboard-container">
+	<div id="place_order_spinner">
+		<div class="sk-cube-grid">
+			<div class="sk-cube sk-cube1"></div>
+			<div class="sk-cube sk-cube2"></div>
+			<div class="sk-cube sk-cube3"></div>
+			<div class="sk-cube sk-cube4"></div>
+			<div class="sk-cube sk-cube5"></div>
+			<div class="sk-cube sk-cube6"></div>
+			<div class="sk-cube sk-cube7"></div>
+			<div class="sk-cube sk-cube8"></div>
+			<div class="sk-cube sk-cube9"></div>
+			<p class="preloader-text">Loading...</p>
+		</div>
+	</div>
+	<p class="card-title">Place a new order</p>
+	<p class="hint-text">Fill these fields and submit form to place an order. When you will place order, balance will be deducted. Please don't place quantity below minimum limit or above maximum limit specified.</p>
+	<form method="post">
+		{% csrf_token %}
+		<input type="hidden" id="price_deduct" name="usd" value="">
+		<div class="form-field">
+			<label for="wallet-id">Service</label>
+			<select name="service_name" id="services_select" required>
+				<option value="">Select a service from the dropdown</option>
+			</select>
+		</div>
+		<div class="form-field">
+			<label for="link">Link</label>
+			<input id="link" name="link" type="text" placeholder="Please enter your profile or post link" required>
+		</div>
+		<div class="form-field">
+			<label for="order_quantity">Quantity</label>
+			<input id="order_quantity" name="quantity" type="number" placeholder="Please enter the quantity" required>
+		</div>
+		<div id="ppk"></div>
+		<div id="final-amount"></div>
+		<div class="form-field">
+			<button id="wallet-id" type="submit">Submit</button>
+		</div>
+	</form>
+</div>
+{% endblock %}

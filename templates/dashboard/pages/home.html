@@ -1,0 +1,16 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div id="dashboard-container">
+	<p class="card-title">Welcome to SMMPanel.guru Dashboard</p>
+	<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales urna rutrum, malesuada lorem vitae, imperdiet augue. Vestibulum faucibus malesuada tempus. Nunc eget tristique quam, ac tristique felis. Mauris laoreet metus metus, at aliquam quam sagittis ac. Pellentesque quis odio risus. Sed venenatis, ligula vitae ullamcorper auctor, purus nunc sollicitudin lectus, in condimentum purus lacus in lectus. Donec aliquam libero eget magna ullamcorper sodales. Sed placerat dolor vel ornare auctor. Morbi nisl lectus, varius sit amet leo et, venenatis porttitor eros.</p>
+	<p class="card-text">Cras luctus, lorem in semper mollis, ante felis dictum nunc, gravida euismod est arcu sit amet ligula. Ut leo arcu, vehicula a porttitor nec, consectetur at arcu. Vestibulum vulputate, ligula at ultricies tincidunt, leo ante fringilla nulla, at pulvinar neque nulla sit amet nibh. Morbi nec mollis dolor. Donec et semper libero, et suscipit ipsum.</p>
+	<div class="home-buttons">
+		<div class="left">
+			<div class="button">
+				<a href="{% url 'new-order' %}">Place order</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

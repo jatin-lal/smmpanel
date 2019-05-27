@@ -1,0 +1,174 @@
+body, p, a, ul, li, input, button, textarea{margin: 0;}
+p, a, li, td, tr, label, input, button, select, textarea{font-family: ProximaFont, sans-serif; -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+a{text-decoration: none;}
+li{list-style-type: none;}
+
+#top-nav{position: fixed;top: 0;left: 0;width: 100vw;height: 42px;background-color: $theme;z-index: 5;padding: 0 15px;box-sizing: border-box;
+	#dashboard-logo{
+		p{font-family: "Anton";font-size: 28px;line-height: 48px;color: #fff;}
+	}
+	.left{float: left;}
+	.right{float: right;
+		a{font-size: 13px;color: #fff;font-weight: bold;line-height: 42px;}
+	}
+}
+#side-nav{position: fixed;top: 42px;left: 0;width: 80px;height: calc(100vh - 42px);background-color: #fff;box-shadow: -2px 2px 5px 0 rgba(0,0,0,0.5);z-index: 5;
+	ul{margin: 0;padding: 0;
+		li{padding: 15px 0;
+			p{color: #333;font-weight: bold;font-size: 13px;text-align: center;margin-top: 6px;}
+			&.selected{i,p{color: #CA6924;}}
+		}
+	}
+	.icon{text-align: center;
+		i{font-size: 32px;}
+		i, p{color: #333;}
+	}
+}
+#dashboard-body{position: fixed;top: 42px;left: 80px;width: calc(100vw - 80px);height: calc(100vh - 42px);background-color: #f6f6f6;overflow: auto;}
+
+#top-nav{
+	.right{
+		#dashboard-logout-button{float: left;
+			a{font-size: 14px;font-weight: bold;color: #fff;line-height: 42px;background-color: #fff;color: $theme;padding: 4px 12px;border-radius: 5px;;color: $theme;
+				i{margin-left: 4px;}
+			}
+		}
+	}
+}
+
+#dashboard-logo{
+	a{font-family: "Anton";
+    font-size: 28px;
+    line-height: 48px;
+    color: #fff;}
+}
+
+#dashboard-container{width: 500px;min-height: 300px;background-color: #fff;position: relative;padding: 15px;margin: 50px auto;box-shadow:0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);box-sizing: border-box;border-radius: 5px;
+	.card-title{font-weight: bold;font-size: 14px;}
+	.card-text{font-size: 13px;margin-top: 10px;}
+	.button{margin-top: 12px;
+		a{color: #fff;display: inline-block;background-color: $theme;font-size: 13px;font-weight: bold;line-height: 32px;padding: 0 10px;border-radius: 5px;}
+	}
+	label, input, button, select{display: block;}
+	label{margin-top: 13px;margin-bottom: 4px;}
+	label{font-size: 12px;font-weight: bold;margin-left: 4px;}
+	input, button, select, button{height: 32px;width: 100%;background-color: #eee;border-radius: 5px;color: #333;font-size: 13px;border: none;font-weight: bold;}
+	input, select{padding: 0 10px;box-sizing: border-box;}
+	button{cursor: pointer;
+		&[type='submit']{background-color: $theme;color: #fff;margin-top: 13px;}
+	}
+	input{}
+	.wallet-row{margin-top: 20px;
+		&:after{clear: both;display: block;content: "";}
+	}
+	.wallet-col{width: 33.33%;float: left;text-align: center;padding: 0 8.33%;
+		.title{font-size: 13px;font-weight: bold;margin-bottom: 4px;}
+	}
+	.wallet-box{display: inline-block;padding: 8px 10px;border-radius: 5px;background-color: $theme;box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+		&#wallet-total-balance{background-color: #003171;}
+		&#wallet-spent-amount{background-color: $green;}
+		p{color: #fff;}
+	}
+	.hint-text{font-size: 14px;margin-top: 10px;margin-left: 2px;
+		&.--important{font-weight: bold;}
+		&.--success{color: $green;}
+		&.--center{text-align: center;}
+	}
+	.wallet-add-balance-options{margin-top: 15px;
+		&:after{clear: both;display: block;content: "";}
+	}
+	#back-button{background-color: $theme;color: #fff;font-weight: bold;font-size: 13px;padding: 8px 10px;margin-bottom: 15px;display: inline-block;border-radius: 5px;transition: 250ms;
+		i{font-size: 13px;vertical-align: middle;margin-right: 3px;}
+		&:hover{background-color: darken($theme, 10%);}
+	}
+	#wallet-discount{margin: 0;padding: 18px 0 5px 0;margin-left: 28px;
+		li{list-style-type: disc;
+			p{font-size: 13px;font-weight: bold;line-height: 22px;}
+		}
+	}
+	.payment-logo{width: 100%;text-align: center;padding: 15px 0;
+		&#paytm-logo{height: 35px;}
+		&#bitcoin-logo, &#ethereum-logo {
+			img{height: 80px;}
+		}
+		img{height: 40px;}
+	}
+	#phone-number{
+		p{width: 34px;float: left;line-height: 32px;box-sizing: border-box;font-size: 13px;text-align: center;background-color: $theme;color: #fff;border-radius: 5px 0 0 5px;font-weight: bold;}
+		input{width: calc(100% - 34px);float: left;border-radius: 0 5px 5px 0;}
+		&:after{clear: both;display: block;content: "";}
+	}
+	#crypto-qr{text-align: center;margin-top: 15px;
+		img{width: 150px;margin: 0 auto;}
+	}
+	.dashboard-options-list{
+		.left{float: left;}
+		.right{float: right;}
+		ul{margin: 0;padding: 0;
+			li{border-bottom: 1px solid #eee;padding-bottom: 8px;margin-bottom: 8px;
+				p{color: #333;}
+				a{padding: 3px 8px;background-color: #FFA400;color: #fff;border-radius: 4px;}
+				p, a{font-size: 13px;font-weight: bold;line-height: 25px;}
+				.dashboard-options-list-hint{font-size: 12px;font-weight: 300 !important;line-height: 20px;margin-top: 8px;}
+				&:last-child{border-bottom: none;}
+				&:after{clear: both;display: block;content: "";}
+			}
+		}
+		b{color: darken($theme, 10%);}
+		&#dashboard-wallet-add{margin-top: 15px;}
+	}
+	.service-start-button{margin-top: 15px;
+		div{text-align: center;
+			p{font-weight: bold;color: #fff;background-color: $theme;display: inline-block;padding: 5px 10px;border-radius: 5px;font-size: 13px;cursor: pointer;}
+		}
+	}
+	.crypto-pay-row{
+		img{vertical-align: middle;}
+		.payment-logo{
+			&#ethereum-logo{float: left;width: unset;width: 120px;text-align: center;padding: 42px 0;}
+		}
+		#crypto-qr{float: right;margin-right: 10px;}
+		&:after{clear: both;display: block;content: "";}
+	}
+	#place_order_spinner{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 20;background-color: #fff;border-radius: 5px;opacity: 1;transition: 250ms;
+		.spinner{position: absolute;top: calc(50% - 20px);left: calc(50% - 25px);}
+		.preloader-text{font-size: 12px;font-weight: bold;padding-top: 50px;}
+		&.closing{opacity: 0;}
+	}
+	#ppk, #final-amount{margin-top: 15px;padding-left: 5px;
+		p{font-size: 13px;font-weight: bold;line-height: 24px;}
+	}
+	.transactions-list-history{margin: 0;padding: 0;
+		li{padding: 10px;border-bottom: 1px solid #eee;
+			p{font-size: 13px;line-height: 20px;}
+			&:last-child{border-bottom: none;}
+		}
+		.transaction-status{margin-top: 12px;border-radius: 5px;box-shadow: -2px 2px 5px 0 rgba(0,0,0,0.15);
+			.status-title{float: left;}
+			.status-detail{float: right;}
+			p{color: #fff;font-weight: bold;}
+			&.Pending{background-color: #BF55EC;padding: 5px 10px;}
+			&.Cancelled{background-color: $red;padding: 5px 10px;}
+			&.Completed{background-color: $green;padding: 5px 10px;}
+			&:after{clear: both;display: block;content: "";}
+		}
+	}
+}
+
+.order-status{font-weight: bold;margin-top: 12px;padding: 5px 10px;border-radius: 5px;color: #fff;
+	&.Recieved{background-color: #BF55EC;}
+	&.Cancelled{background-color: $red;}
+	&.Complete{background-color: $green;}
+}
+
+.add-guidelines{font-size: 13px;margin-top: 15px;line-height: 18px;
+	a{color: darken($theme, 10%);}
+}
+
+#telegram-members-modal{position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 15;background-color: rgba(0,0,0,0.5);display: table;
+	#telegram-members-vertical{display: table-cell;vertical-align: middle;
+		#telegram-members-container{width: 100%;max-width: 400px;padding: 0 15px;box-sizing: border-box;
+			#telegram-members-box{width: 100%;min-height: 150px;}
+		}
+	}
+}
