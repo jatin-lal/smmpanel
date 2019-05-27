@@ -170,3 +170,19 @@
 	input, button{border-radius: 5px;font-size: 13px;font-weight: bold;color: #555;padding: 0 10px;box-sizing: border-box;}
 	form:after{clear: both;display: block;content: "";}
 }
+
+@media (max-width: 720px) {
+	#steps-section #steps-container{width: 100%;padding: 0 10px;box-sizing: border-box;}
+	#steps-section #steps-container .step{width: 100%;margin-bottom: 2px;float: none;
+		&:after{bottom: -7.4px;left: calc(50% - 4.54px);transform: rotate(135deg);}
+	}
+	.feature-box{margin-top: 10px;}
+	#footer #footer-skew{display: none;}
+	.container{width: 100%;padding: 0 10px;box-sizing: border-box;}
+	#footer #footer-other-content{width: 100%;padding: 0 10px;box-sizing: border-box;}
+	#footer #footer-links{width: 100%;padding: 10px 0;}
+	#footer #footer-form-left{width: 100%;padding: 0 10px;box-sizing: border-box;margin-top: 20px;}
+	#help-section .wide-col{width: 100%;padding: 0 10px;box-sizing: border-box;margin-top: 20px;}
+	#step-description{width: 100%;padding: 20px 10px;box-sizing: border-box;}
+	#footer-copy .right{float: left;}
+}
