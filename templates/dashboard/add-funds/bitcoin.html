@@ -4,13 +4,15 @@
 <div id="dashboard-container">
 	<a id="back-button" href="{% url 'wallet' %}"><i class="fas fa-chevron-left"></i> Back</a>
 	<p class="card-title">Add funds using Bitcoin</p>
-	<div id="bitcoin-logo" class="payment-logo">
-		<img src="{% static 'img/bitcoin.png' %}" alt="Bitcoin logo">
+	<div class="crypto-pay-row">
+		<div id="ethereum-logo" class="payment-logo">
+			<img src="{% static 'img/bitcoin.png' %}" alt="Bitcoin logo">
+		</div>
+		<div id="crypto-qr">
+			<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=Jatin Lal is a Full Stack Django Developer&chld=L|1&choe=UTF-8" alt="Address QR Code" />
+		</div>
 	</div>
 	<p class="hint-text">After paying bitcoins to this address, please fill in this form. After filling, your balance will be updated within 4 hours. If you have any query, please feel free to contact us at admin@ngage.icu or at Telegram at @ngage.</p>
-	<div id="crypto-qr">
-		<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=Jatin Lal is a Full Stack Django Developer&chld=L|1&choe=UTF-8" alt="Address QR Code" />
-	</div>
 	<p class="hint-text">Minimum payment should be of at least 50$ equivalent BTC. Bitcoins paid below 50$ will be refunded, and will not be added. Transaction fee or mining fee will not be refunded.</p>
 	<p class="hint-text --important --success --center">Minimum Amount : 50$</p>
 

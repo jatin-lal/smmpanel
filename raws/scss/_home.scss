@@ -11,8 +11,8 @@
 						}
 					}
 				}
-				.go-to-dashboard{background-color: #fff;color: $theme;padding: 5px 10px;display: inline-block;border-radius: 4px;cursor: pointer;margin-top: 15px;
-					a{font-weight: bold;font-size: 14px;
+				.go-to-dashboard{background-color: #fff;color: $theme;display: inline-block;border-radius: 4px;cursor: pointer;margin-top: 15px;
+					a{font-weight: bold;font-size: 14px;display: block;padding: 5px 10px;
 						i{margin-left: 4px;}
 						&, &:visited{color: $theme;}
 					}

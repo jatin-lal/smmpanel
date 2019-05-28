@@ -24,6 +24,10 @@
 		</li>
 	{% endfor %}
 	</ul>
+	{% else %}
+	<div class="add-guidelines">
+		<p><b>You have not placed any orders. Go to  <a href="{% url 'new-order' %}">Place order</a> to place an order.</b></p>
+	</div>
 	{% endif %}
 </div>
 {% endblock %}
