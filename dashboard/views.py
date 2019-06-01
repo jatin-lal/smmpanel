@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from .models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
+from telegram.models import Members
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 @login_required
 def home(request):
@@ -76,9 +77,11 @@ def wallet(request):
 
 @login_required
 def telegram(request):
+	curr = "telegram"
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
 	return render(request, 'dashboard/pages/telegram-services.html', {
-		'balance': balance
+		'balance': balance,
+		"curr": curr
 	})
 
 @login_required
@@ -269,6 +272,23 @@ def bitcoinTransactions(request):
 		'transactions': transactions,
 		'balance': balance,
 		'curr': curr
+	})
+
+@login_required
+def telegramMembers(request, slug):
+	return render(request, 'dashboard/pages/telegram-members.html', {})
+
+@login_required
+def members(request, slug):
+	members_list = Members.objects.get(slug = slug)
+	group_name = members_list.group_name
+	list_1 = members_list.members
+	date = members_list.created_at
+
+	return render(request, 'dashboard/pages/members.html', {
+		"group_name": group_name,
+		"list": list_1,
+		"date": date
 	})
 
 @login_required

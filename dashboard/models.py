@@ -84,6 +84,7 @@ class Order(models.Model):
 	status = models.ForeignKey('OrderStatus', on_delete=models.CASCADE)
 	remark = models.CharField(max_length = 5000, blank=True)
 	generate_url = models.FileField(blank = True, default='')
+	slug = models.CharField(max_length = 256, default = "")
 	created_at = models.DateTimeField(auto_now_add=True, editable=True)
 	updated_at = models.DateTimeField(auto_now=True)
 

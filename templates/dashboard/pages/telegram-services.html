@@ -19,7 +19,7 @@
 				</p>
 				<p class="dashboard-options-list-hint"><b>Please note that we support only groups, and not channels.</b></p>
 			</li>
-			<li>
+			<!--<li>
 				<div class="row --no-margins">
 					<div class="left">
 						<p>Authentic Telegram Members</p>
@@ -29,15 +29,47 @@
 					</div>
 				</div>
 				<p class="dashboard-options-list-hint">Invite members from your targets groups to your group, resulting in authentic numerous members.</p>
-			</li>
+				</p>
+				<p class="dashboard-options-list-hint"><b>Please note that we support only groups, and not channels.</b></p>
+			</li>-->
 		</ul>
 	</div>
 </div>
 <div id="telegram-members-modal">
 	<div id="telegram-members-vertical">
 		<div id="telegram-members-container">
-			<div id="telegram-members-header">
-				<p>Fetch Telegram Usernames</p>
+			<div id="telegram-members-box">
+				<div id="telegram-members-overlay">
+					<div class="sk-cube-grid">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+						<div class="sk-cube sk-cube3"></div>
+						<div class="sk-cube sk-cube4"></div>
+						<div class="sk-cube sk-cube5"></div>
+						<div class="sk-cube sk-cube6"></div>
+						<div class="sk-cube sk-cube7"></div>
+						<div class="sk-cube sk-cube8"></div>
+						<div class="sk-cube sk-cube9"></div>
+						<p class="preloader-text">Fetching...</p>
+					</div>
+				</div>
+				<div id="close-box">
+					<i class="fas fa-times"></i>
+				</div>
+				<div id="telegram-members-header">
+					<p>Telegram Usernames</p>
+				</div>
+				<div id="telegram-members-body">
+					<div class="field">
+						<input type="text" id="group-name" placeholder="Enter group name" />
+					</div>
+				</div>
+				<div id="telegram-members-warning">
+					<p>Note that we are unable to fetch members form Channels, please enter Group Username only</p>
+				</div>
+				<div id="telegram-members-start-button">
+					<button id="telegram-start-button">Get members</button>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -2,10 +2,10 @@
 	background: linear-gradient(rgba($color, $opacity), rgba($color, $opacity)), url($image);
 }
 
-body{background: $theme;}
+body{background: #191919;}
 
 input, textarea, button, select{letter-spacing: 0.4px;}
-
+input, textarea {-webkit-appearance: none;-webkit-border-radius: 0;}
 @font-face {font-family: ProximaFont;src: url("/dist/font/proximanova.otf") format("opentype");}
 @font-face {font-family: ProximaFont;font-weight: bold;src: url("/dist/font/proximanovabold.otf") format("opentype");}
 body, p, a, ul, li, input, button, textarea{margin: 0;}
@@ -15,12 +15,19 @@ li{list-style-type: none;}
 a, input, button, textarea, select{
 	&, &:active, &:focus{border: none;outline: none;}
 }
-#nav{height: 48px;}
+#nav{height: 48px;position: fixed;top: 0;left: 0;width: 100%;background: transparent;z-index: 3;transition: 250ms;box-shadow: 0 0 0 0 rgba(0,0,0,0.5);box-sizing: border-box;
+	&.down{background: #000;box-shadow: 0 0 0 0 rgba(0,0,0,0.5);}
+}
 #content{min-height: calc(100vh - 248px);background-color: #ffffff;width: 100vw;overflow-x: hidden;padding-bottom: 75px;}
-#nav, #footer{background-color: $theme;}
+#nav, #footer{}
 #nav{
 	.row:after{clear: both;display: block;content: "";}
 	.left{float: left;}
+	.right{
+		#login-username{
+			line-height: 48px;
+		}
+	}
 }
 .public-page-title{font-size: 18px;text-align: center;margin: 20px 0;font-weight: bold;}
 .public-page-content{
@@ -30,7 +37,7 @@ a, input, button, textarea, select{
 		#login-username{float: left;line-height: 42px;margin-right: 18px;font-weight: bold;font-size: 13px;color: #fff;}
 	}
 	#logout-button{float: left;
-		a{font-size: 14px;font-weight: bold;color: #fff;line-height: 48px;background-color: #fff;color: $theme;padding: 4px 12px;border-radius: 5px;
+		a{font-size: 14px;font-weight: bold;color: #fff;line-height: 48px;background-color: #fff;color: #191919;padding: 4px 12px;border-radius: 5px;
 			i{margin-left: 4px;}
 		}
 	}
@@ -57,7 +64,7 @@ a, input, button, textarea, select{
 	.left{float: left;}p, a{font-weight: bold;}
 }
 #footer{position: relative;padding: 40px 0 20px 0;
-	#footer-skew{position: absolute;height: 50px;background-color: $theme; width: 100%;bottom: calc(100% - 24px);transform: skewY(-1deg);}
+	#footer-skew{position: absolute;height: 50px;background-color: #191919; width: 100%;bottom: calc(100% - 24px);transform: skewY(-1deg);}
 	.left{float: left;}
 	ul{margin: 0;padding: 0;}
 	#footer-links{float: left;width: 25%;min-height: 1px;text-align: center;padding: 64px 0;
@@ -87,7 +94,7 @@ a, input, button, textarea, select{
 				input{height: 34px;}
 				textarea{height: 140px;width: 100%;overflow-y: auto;resize: none;padding: 10px;}
 				input, textarea, button{font-size: 13.5px;box-sizing: border-box;border-radius: 5px;font-weight: bold;}
-				input[type='submit']{background-color: $theme;margin-bottom: 15px;color: #fff;margin-top: 15px;}
+				input[type='submit']{background-color: #191919;margin-bottom: 15px;color: #fff;margin-top: 15px;}
 	}
 	#social-links{background-color: #fff;padding: 5px 10px;display: inline-block;margin-top: 10px;border-radius: 5px;box-shadow: inset 0px 0px 5px 0 rgba(0,0,0,0.5);
 		ul{
