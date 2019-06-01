@@ -18,6 +18,9 @@ urlpatterns = [
     path('add-funds-ethereum', dashboard.ethereum, name='add-ethereum'),
 
     path('transactions', dashboard.transactions, name='transactions'),
+    path('members/<slug>', dashboard.members, name="members"),
+
+    path('telegram-members/<slug>', dashboard.telegramMembers, name='telegram-members'),
 
     path('paypal-transactions', dashboard.paypalTransactions, name="paypal-transactions"),
     path('paytm-transactions', dashboard.paytmTransactions, name="paytm-transactions"),

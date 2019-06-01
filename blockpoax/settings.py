@@ -15,10 +15,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'corsheaders',
     'public',
     'userauth',
     'dashboard',
+    'telegram',
 ]
 
 LOGIN_REDIRECT_URL = 'dashboard'

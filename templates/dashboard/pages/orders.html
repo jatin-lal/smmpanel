@@ -1,5 +1,6 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <div id="dashboard-container">
 	<a id="back-button" href="{% url 'transactions' %}"><i class="fas fa-chevron-left"></i> Back</a>
@@ -7,6 +8,19 @@
 	{% if orders %}
 	<ul class="transactions-list-history">
 	{% for order in orders %}
+		{% if order.slug %}
+		<li>
+			<p class="order-name"><b>{{ order.service_name }}</b></p>
+			<p class="order-charge"><b>Order amount :</b>  {{ order.amount }} $</p>
+			<div class="mrow">
+				<p class="order-time"><b>Order date :</b> {{ order.created_at | date:"SHORT_DATE_FORMAT" }}</p>
+			<div class="download-file-button">
+				<a href="/dashboard/members/{{ order.slug }}" target="_blank"><i class="fas fa-file"></i> Download file</a>
+			</div>
+				<p class="order-status {{ order.status }}">{{ order.status }}</p>
+			</div>
+		</li>
+		{% else %}
 		<li>
 			<p class="order-name"><b>{{ order.service_name }}</b></p>
 			<p class="order-quantity"><b> Quantity :</b> {{ order.quantity }}</p>
@@ -22,6 +36,7 @@
 			</div>
 			{% endif %}
 		</li>
+		{% endif %}
 	{% endfor %}
 	</ul>
 	{% else %}

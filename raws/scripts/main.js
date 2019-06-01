@@ -98,12 +98,84 @@
 	if (document.getElementById("start-fetch-usernames")) {
 		document.getElementById("start-fetch-usernames").onclick = function(event) {
 			event.preventDefault();
-			console.log("Clickde on fetch usernames");
+			document.getElementById("telegram-members-modal").style.display = "table";
+			setTimeout(function() {
+				document.getElementById("telegram-members-modal").classList.add("open");
+			});
 		}
+	}
+
+	if (document.getElementById("close-box")) {
+		document.getElementById("close-box").onclick = function(event) {
+			document.getElementById("telegram-members-modal").classList.remove("open");
+			setTimeout(function() {
+				document.getElementById("telegram-members-modal").style.display = "none";
+			}, 510);
+		}
+	}
+
+	if (document.getElementById("telegram-start-button")) {
+		console.log("/api/get-members?group-name=" + document.getElementById("group-name").value);
+		document.getElementById("telegram-start-button").onclick = function(event) {
+			document.getElementById('telegram-members-overlay').style.display = "block";
+			function getJSON(url, callback) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', url, true);
+				xhr.responseType = 'json';
+				xhr.onload = function() {
+					var status = xhr.status;
+					if (status === 200) {
+						callback(null, xhr.response);
+					}
+					else {
+						callback(status, xhr.response);
+					}
+				};
+				xhr.send();
+			};
+			getJSON('/api/get-members?group-name=' + document.getElementById("group-name").value,
+				function(err, data) {
+					if (err !== null) {
+						alert('Something went wrong: ' + err);
+					}
+					else {
+						document.getElementById('telegram-members-modal').style.display = "none";
+						window.location="/dashboard/orders";
+					}
+				}
+			);
+		}
+	}
+
+	if (document.getElementById('members-sheet')) {
+		str = "";
+		arr = document.getElementById("members-list").innerHTML.split("@");
+		for (i = 0;i < arr.length; i++) {
+			if (arr[i] != "") {
+				str = str + "<p>@" + arr[i] + "</p>";
+			}
+		}
+		document.getElementById("members-list").innerHTML = str;
 	}
 
 	if (document.getElementById('order_quantity')) {
 	    loadOptions();
+	}
+
+	if (document.getElementById("banner")) {
+		window.onscroll = function(event) {
+			if (document.documentElement.scrollTop > 10) {
+				nav = document.getElementById("nav");
+				if (!nav.classList.contains("down")) {
+					nav.classList.add("down");
+				}
+			}
+			else{
+				if (nav.classList.contains("down")) {
+					nav.classList.remove("down");
+				}
+			}
+		}
 	}
 	
 	if (document.getElementById("preloader")) {
