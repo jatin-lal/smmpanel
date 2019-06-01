@@ -29,6 +29,16 @@
 		<style>#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff;display:table;z-index:15;transition:250ms;opacity:1}#preloader #preloader-vertical{display:table-cell;vertical-align:middle}#preloader .preloader-text{font-size:12px;font-weight:bold;margin-top:15px}#preloader.closing{opacity:0}</style>
 	</head>
 	<body bgcolor="#875F9A">
+	{% if messages %}
+	<ul class="messages" id="error-message">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	    <div id="close-messages">
+	    	<i class="fas fa-times"></i>
+	    </div>
+	</ul>
+	{% endif %}
 		<div id="preloader">
 			<div id="preloader-vertical">
 				<div class="spinner">
@@ -169,6 +179,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="{% static 'js//main.js' %}"></script>
+		<script src="http://localhost:8080/main.js"></script>
 	</body>
 </html>

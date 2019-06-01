@@ -16,6 +16,7 @@ urlpatterns = [
     path('logout', auth.logout, name='logout'),
     path('api/', include('api.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('email-not-verified', auth.emailNotVerified, name="email-not-verified"),
 ]
 
 handler404 = 'public.views.handler404'

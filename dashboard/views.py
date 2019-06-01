@@ -9,6 +9,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 @login_required
 def home(request):
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/home.html', {
 		'balance': balance
 	})
@@ -17,6 +19,8 @@ def home(request):
 def newOrder(request):
 	curr = "new-order"
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
 		service_name = request.POST.get('service_name')
 		link = request.POST.get('link')
@@ -68,6 +72,8 @@ def newOrder(request):
 def wallet(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	spent = Profile.objects.get(user = User.objects.get(username = request.user.username)).spent
 	return render(request, 'dashboard/pages/wallet.html', {
 		'balance': balance,
@@ -79,6 +85,8 @@ def wallet(request):
 def telegram(request):
 	curr = "telegram"
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/telegram-services.html', {
 		'balance': balance,
 		"curr": curr
@@ -87,6 +95,8 @@ def telegram(request):
 @login_required
 def website(request):
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/website-services.html', {
 		'balance': balance
 	})
@@ -94,6 +104,8 @@ def website(request):
 @login_required
 def ico(request):
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/ico-services.html', {
 		'balance': balance
 	})
@@ -101,6 +113,8 @@ def ico(request):
 @login_required
 def press(request):
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/press-release-services.html', {
 		'balance': balance
 	})
@@ -109,6 +123,8 @@ def press(request):
 def paytm(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
 		number = request.POST.get('number')
 		amount = request.POST.get('amount')
@@ -137,6 +153,8 @@ def paytm(request):
 def paypal(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
 		email_id = request.POST.get('email_id')
 		amount = request.POST.get('amount')
@@ -164,6 +182,8 @@ def paypal(request):
 def bitcoin(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
 		address = request.POST.get('address')
 		amount = request.POST.get('amount')
@@ -194,6 +214,8 @@ def bitcoin(request):
 def ethereum(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
 		address = request.POST.get('address')
 		amount = request.POST.get('amount')
@@ -223,6 +245,8 @@ def ethereum(request):
 def orders(request):
 	curr = 'orders'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	orders = Order.objects.filter(user_id = User.objects.get(username = request.user.username)).order_by('-created_at')
 	return render(request, 'dashboard/pages/orders.html', {
 		'curr': curr,
@@ -235,6 +259,8 @@ def orders(request):
 def transactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/transactions.html', {
 		'balance': balance,
 		'curr': curr
@@ -245,6 +271,8 @@ def transactions(request):
 def paypalTransactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	transactions = Paypal.objects.filter(user_id = User.objects.get(username = request.user.username))
 	return render(request, 'dashboard/transactions/paypal.html', {
 		'transactions': transactions,
@@ -256,6 +284,8 @@ def paypalTransactions(request):
 def paytmTransactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	transactions = PayTM.objects.filter(user_id = User.objects.get(username = request.user.username))
 	return render(request, 'dashboard/transactions/paytm.html', {
 		'transactions': transactions,
@@ -267,6 +297,8 @@ def paytmTransactions(request):
 def bitcoinTransactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	transactions = Bitcoin.objects.filter(user_id = User.objects.get(username = request.user.username))
 	return render(request, 'dashboard/transactions/bitcoin.html', {
 		'transactions': transactions,
@@ -276,10 +308,14 @@ def bitcoinTransactions(request):
 
 @login_required
 def telegramMembers(request, slug):
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/telegram-members.html', {})
 
 @login_required
 def members(request, slug):
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	members_list = Members.objects.get(slug = slug)
 	group_name = members_list.group_name
 	list_1 = members_list.members
@@ -295,6 +331,8 @@ def members(request, slug):
 def ethereumTransactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		return HttpResponseRedirect("/email-not-verified")
 	transactions = Ethereum.objects.filter(user_id = User.objects.get(username = request.user.username))
 	return render(request, 'dashboard/transactions/ethereum.html', {
 		'transactions': transactions,

@@ -96,6 +96,7 @@ class Profile(models.Model):
 	balance = models.DecimalField(max_digits=10, decimal_places=5)
 	spent = models.DecimalField(max_digits=10, decimal_places=5, default = 0)
 	email = models.EmailField(max_length=254)
+	email_verified = models.BooleanField(default = False)
 
 	def __str__(self):
 		return self.user.username
