@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from django import forms
 from blockpoax.forms import UserRegistrationForm
 from dashboard.models import Profile
+from django.contrib import messages
 
 def login(request):
 	username = request.POST.get('username')
@@ -20,6 +21,7 @@ def login(request):
 		auth_login(request, user)
 		return HttpResponseRedirect('/dashboard')
 	else:
+		messages.add_message(request, messages.INFO, 'Either the Username or Password entered by you is incorrect')
 		return HttpResponseRedirect('/')
 
 def register(request):
@@ -39,10 +41,14 @@ def register(request):
 				profile.save()
 				return HttpResponseRedirect('/dashboard')
 			else:
-				raise forms.ValidationError('Looks like a username with that email or password already exists')
+				messages.add_message(request, messages.INFO, 'Looks like a username with that email or password already exists.')
+				return HttpResponseRedirect('/')
 	return HttpResponseRedirect('/')
 
 
 def logout(request):
 	auth_logout(request)
 	return HttpResponseRedirect('/')
+
+def emailNotVerified(request):
+	return render(request, "dashboard/error/email-not-verified.html", {})

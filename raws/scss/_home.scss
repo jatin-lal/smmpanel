@@ -55,10 +55,12 @@
 .modal{position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;display: none;background-color: rgba(0,0,0,0.5);z-index: 5;opacity: 0;transition: 500ms;
 	.modal-vertical{display: table-cell;vertical-align: middle;
 		.modal-container{width: 100%;max-width: 500px;margin: 0 auto;padding: 0 15px;box-sizing: border-box;
-			.modal-box{background-color: #fff;border-radius: 5px;transition: 500ms;transform: translateY(-5vh);
+			.modal-box{background-color: #fff;border-radius: 5px;transition: 500ms;transform: translateY(-5vh);box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
 				.fields{padding: 0 10px;margin-bottom: 10px;}
-				.modal-header{padding: 0 10px;margin-bottom: 10px;
-					p{font-weight: bold;line-height: 38px;}
+				.modal-header{padding: 15px;margin-bottom: 10px;background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("/dist/img/auth-header.jpg");border-radius: 5px 5px 0 0;background-size: cover;background-position: center;height: 112px;box-sizing: border-box;
+					p{font-weight: bold;line-height: 38px;color: #f6f6f6;
+						&.modal-header-content{font-size: 13px;line-height: 18px;padding: 0 4px;}
+					}
 				}
 				.modal-body{padding: 10px 0;
 					input, textarea{background-color: #eee;}
@@ -175,7 +177,7 @@
 	input, button{width: 100%;height: 36px;}
 	input, label, button{display: block;}
 	.submit{width: 180px;float: left;padding: 0 10px;box-sizing: border-box;
-		button{margin-top: 20px;background-color: $theme;color: #fff;height: 38px;font-size: 13}
+		button{margin-top: 20px;cursor: pointer;background-color: $theme;color: #fff;height: 38px;font-size: 13px;}
 	}
 	input, button{border-radius: 5px;font-size: 13px;font-weight: bold;color: #555;padding: 0 10px;box-sizing: border-box;}
 	form:after{clear: both;display: block;content: "";}

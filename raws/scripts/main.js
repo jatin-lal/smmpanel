@@ -2,7 +2,6 @@
 	if (document.getElementById("request-proposal")) {
 		document.getElementById("request-proposal").onclick = function(event) {
 		document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
-			console.log("Clicked on Request Proposal");
 			document.getElementById('request-quotation-modal').style.display = "table";
 			setTimeout(function(){
 				document.getElementById('request-quotation-modal').classList.add('open');
@@ -24,6 +23,16 @@
 		document.getElementById('amount').oninput = function(){
 			document.getElementById('amount_in_usd').innerHTML = "Around <b>" + (this.value / 72).toFixed(2) + " USD</b> will be added to your account ";
 			document.getElementById('usd_value').value = (this.value / 70).toFixed(2)
+		}
+	}
+
+	if (document.getElementById("error-message")) {
+		document.getElementById("close-messages").onclick = function(event) {
+			document.getElementById("error-message").classList.add("closing");
+			setTimeout(function() {
+				var element = document.getElementById("error-message");
+    			element.parentNode.removeChild(element);
+			}, 500);
 		}
 	}
 
@@ -50,11 +59,9 @@
 				}
 				else {
 				price = data.price_usd;
-				console.log(price);
 			}
 		});
 		document.getElementById('amount').oninput = function(){
-			console.log(this.value);
 			document.getElementById('amount_in_usd').innerHTML = "Around <b>" + (this.value * price).toFixed(2) + " USD</b> will be added to your account ";
 			document.getElementById('usd_value').value = (this.value * price).toFixed(2);
 		}
@@ -84,14 +91,40 @@
 				}
 				else {
 				price = data.price_usd;
-				console.log(price);
 			}
 		});
 
 		document.getElementById('amount').oninput = function(){
-			console.log(this.value);
 			document.getElementById('amount_in_usd').innerHTML = "Around <b>" + (this.value * price).toFixed(2) + " USD</b> will be added to your account ";
 			document.getElementById('usd_value').value = (this.value * price).toFixed(2)
+		}
+	}
+
+	if (document.getElementById("register-section")) {
+		document.getElementById("register-button").onclick = function(event) {
+			register_success = true;
+			if (document.getElementById("id_username").value.length > 0){
+				if (document.getElementById("id_username").value.includes("@")) {
+					register_success = false;
+					alert("Username cannot contain @");
+				}				
+			}
+
+			if (document.getElementById("id_email").value.length > 0) {
+				if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("id_email").value)) {
+					register_success = false;
+					alert("Please enter Email ID in correct format");
+				}
+			}
+
+			if (document.getElementById("id_password").value.length < 8) {
+				alert("The length of Password must be atleast 8 characters");
+				register_success = false;
+			}
+
+			if (!register_success) {
+				event.preventDefault();
+			}
 		}
 	}
 
@@ -115,7 +148,6 @@
 	}
 
 	if (document.getElementById("telegram-start-button")) {
-		console.log("/api/get-members?group-name=" + document.getElementById("group-name").value);
 		document.getElementById("telegram-start-button").onclick = function(event) {
 			document.getElementById('telegram-members-overlay').style.display = "block";
 			function getJSON(url, callback) {
@@ -228,7 +260,6 @@ if (document.getElementById('order_quantity')) {
 
 if (document.getElementById('order_quantity')) {
 	document.getElementById('services_select').onchange = function() {
-	    console.log("Changed services");
 	    sel = document.getElementById('services_select');
 	    var opt = sel.options[sel.selectedIndex].dataset.price;
 	    if (opt > 0) {

@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'userauth',
     'dashboard',
     'telegram',
+    'debug_toolbar',
 ]
 
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -36,10 +37,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
 ]
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 CORS_ORIGIN_WHITELIST = [
     "https://coincap.io",
