@@ -6,7 +6,7 @@
 		<link rel=”alternate” href=”http://example.com” hreflang=”en-us” />
 		<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
 		<meta http-equiv="expires" content="43200" />
-		<meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="keywords" content="{% block keywords %}{% endblock %}" />
 		<meta name="description" content="{% block description %}{% endblock %}" />
 		<link rel="canonical" href="" />
@@ -114,6 +114,6 @@
 		<div id="dashboard-body">
 			{% block content %}{% endblock %}
 		</div>
-		<script src="http://localhost:8080/main.js"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 	</body>
 </html>

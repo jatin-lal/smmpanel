@@ -11,6 +11,7 @@ from django import forms
 from blockpoax.forms import UserRegistrationForm
 from dashboard.models import Profile
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def login(request):
 	username = request.POST.get('username')
@@ -50,5 +51,9 @@ def logout(request):
 	auth_logout(request)
 	return HttpResponseRedirect('/')
 
+@login_required
 def emailNotVerified(request):
-	return render(request, "dashboard/error/email-not-verified.html", {})
+	email = Profile.objects.get(user = User.objects.get(username = request.user.username)).email
+	return render(request, "dashboard/error/email-not-verified.html", {
+		'email': email
+	})

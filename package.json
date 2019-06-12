@@ -6,8 +6,8 @@
   "scripts": {
     "build-css": "node-sass --include-path scss raws/scss/main.scss dist/css/main.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build-js": "webpack --mode production",
+    "watch-js": "nodemon -e scss -x \"npm run build-js\""
   },
   "author": "",
   "license": "ISC",

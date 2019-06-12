@@ -138,9 +138,9 @@ a, input, button, textarea, select{
 					svg{height: 120px;}
 				}
 				.title{font-size: 16px;font-weight: bold;margin-bottom: 15px;}
-				.text{font-size: 13px;font-weight: bold;margin-bottom: 15px;}
+				.text{font-size: 13px;margin-bottom: 15px;}
 				#resend-mail-button{text-align: center;
-					a{font-size: 13px;font-weight: bold;color: #f6f6f6;background-color: $theme;padding: 5px 12px;display: inline-block;border-radius: 5px;}
+					a{font-size: 13px;font-weight: bold;color: #f6f6f6;background-color: $theme;padding: 5px 12px;display: inline-block;border-radius: 5px;box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);}
 				}
 			}
 		}
