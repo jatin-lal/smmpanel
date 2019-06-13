@@ -6,8 +6,8 @@ body{background: #191919;}
 
 input, textarea, button, select{letter-spacing: 0.4px;}
 input, textarea {-webkit-appearance: none;-webkit-border-radius: 0;}
-@font-face {font-family: ProximaFont;src: url("/dist/font/proximanova.otf") format("opentype");}
-@font-face {font-family: ProximaFont;font-weight: bold;src: url("/dist/font/proximanovabold.otf") format("opentype");}
+@font-face {font-family: ProximaFont;font-display: auto;;src: url("/dist/font/proximanova.otf") format("opentype");}
+@font-face {font-family: ProximaFont;font-display: auto;font-weight: bold;src: url("/dist/font/proximanovabold.otf") format("opentype");}
 body, p, a, ul, li, input, button, textarea{margin: 0;}
 p, a, li, td, tr, label, input, button, textarea{font-family: ProximaFont, sans-serif; -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
 a{text-decoration: none;}
