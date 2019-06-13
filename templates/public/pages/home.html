@@ -1,7 +1,6 @@
 {% extends 'public/base.html' %}
-
+{% load static %}
 {% block title %}SMMPanel - World's fatest growing SMM Panel{% endblock %}
-
 {% block content %}
 <div id="banner">
 	<div id="banner-vertical">
@@ -238,51 +237,13 @@
 				<p>Telegram</p>
 			</div>
 		</div>
-		<div class="step" id="imdb">
+		<div class="step" id="youtube">
 			<div class="step-vertical">
-				<i class="fab fa-imdb"></i>
-				<p>IMDB</p>
+				<i class="fab fa-youtube"></i>
+				<p>YouTube</p>
 			</div>
 		</div>
 	</div>
-	<!--<div id="steps-container">
-		<div class="step" id="zomato">
-			<div class="step-vertical">
-				<i class="fab fa-facebook-f"></i>
-				<p>Zomato</p>
-			</div>
-		</div>
-		<div class="step" id="google-plus">
-			<div class="step-vertical">
-				<i class="fab fa-google-plus-g"></i>
-				<p>Google</p>
-			</div>
-		</div>
-		<div class="step" id="twitter">
-			<div class="step-vertical">
-				<i class="fab fa-twitter"></i>
-				<p>Twitter</p>
-			</div>
-		</div>
-		<div class="step" id="sound-cloud">
-			<div class="step-vertical">
-				<i class="fab fa-soundcloud"></i>
-				<p>Sound Cloud</p>
-			</div>
-		</div>
-		<div class="step" id="telegram">
-			<div class="step-vertical">
-				<i class="fab fa-telegram-plane"></i>
-				<p>Telegram</p>
-			</div>
-		</div>
-		<div class="step" id="imdb">
-			<div class="step-vertical">
-				<i class="fab fa-imdb"></i>
-				<p>IMDB</p>
-			</div>
-		</div>
-	</div>-->
 	<div id="step-description">
 		<p class="steps-title">Software testing process</p>
 		<div class="list">
@@ -297,17 +258,50 @@
 		</div>
 	</div>
 </div>
-<div class="section" id="help-section">
+<div id="services-section" class="section">
 	<div class="container">
-		<div class="row --no-margins">
-		{% for i in 'abc' %}
-			<div class="col wide-col">
-				<p class="title">Lorem ipsum dolor sit amet</p>
-				<div class="content">
-					<p>Mauris eu blandit leo. Pellentesque sed neque fringilla, <span><a href="#">placerat risus</a></span> nec, finibus mauris. Ut quis odio pellentesque, finibus lacus vel, tincidunt arcu. Integer at sapien in velit luctus volutpat. </p>
-				</div>
+		<p class="section-title">Our Special Services</p>
+		<div class="row">
+			<div class="service" id="influencer-marketing">
+				<p class="title">Influencer Marketing</p>
+				<p class="content">Let the professionals speak for your ICO, and promote it to the most favourable audience.</p>
 			</div>
-		{% endfor %}
+			<div class="service" id="regular-posts">
+				<p class="title">Online posts</p>
+				<p class="content">We post the right content on various social networking medias ensuring massive outreach.</p>
+			</div>
+			<div class="service" id="social-strategy">
+				<p class="title">Grow your communities</p>
+				<p class="content">Let your Social Profiles be strengthened by letting us post influencing people to join you.</p>
+			</div>
+			<div class="service" id="social-updates">
+				<p class="title">Banners Design</p>
+				<p class="content">Get high quality banners designed and built to share at the right spots for high conversion.</p>
+			</div>
+			<div class="service" id="speech">
+				<p class="title">Users' Reviews</p>
+				<p class="content">Get reviews that matter the most for the Audience seeking Crypto Investment Opportunities.</p>
+			</div>
+			<div class="service" id="like-dislike">
+				<p class="title">Likes and Dislikes</p>
+				<p class="content">Providing organic likes on your posts, resulting in better understanding of your idea.</p>
+			</div>
+			<div class="service" id="online-discussion">
+				<p class="title">High Quality Chats</p>
+				<p class="content">Our team will plan and publish quality chats, so that the new investors may understand you easily.</p>
+			</div>
+			<div class="service" id="press-release">
+				<p class="title">Press Release</p>
+				<p class="content">Be an apple of eye of the Crypto Readers browsing the web for new ICOs for investment. </p>
+			</div>
+			<div class="service" id="campaign-optimization">
+				<p class="title">Campaign Optimization</p>
+				<p class="content">Plan your Campaigns easily and efficiently with us to get the most out of your Campaigns..</p>
+			</div>
+			<div class="service" id="article-writing">
+				<p class="title">Article Writing</p>
+				<p class="content">Tell us your requirements and we will handle the rest by writing the best suitable Article for your news..</p>
+			</div>
 		</div>
 	</div>
 </div>

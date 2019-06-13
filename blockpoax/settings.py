@@ -43,6 +43,12 @@ MIDDLEWARE = [
     'htmlmin.middleware.MarkRequestMiddleware',
 ]
 
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'admin@smmpanel.guru'
+EMAIL_HOST_PASSWORD = 'OrionNebula100!'
+EMAIL_USE_TLS = True
+
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 CORS_ORIGIN_WHITELIST = [
@@ -118,3 +124,4 @@ STATIC_URL = '/dist/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'dist')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

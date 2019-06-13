@@ -5,7 +5,7 @@
 				.banner-title{color: #fff;font-size: 22px;font-weight: bold;margin-bottom: 8px;}
 				.banner-content{color: #f6f6f6;font-size: 16px;}
 				#request-proposal-container{margin-top: 15px;
-					#request-proposal{background-color: #fff;color: $theme;padding: 5px 10px;display: inline-block;border-radius: 4px;cursor: pointer;
+					#request-proposal{background-color: #fff;color: $theme;padding: 5px 10px;display: inline-block;border-radius: 4px;cursor: pointer;color: #333;
 						p{font-weight: bold;font-size: 14px;
 							i{margin-left: 4px;}
 						}
@@ -41,6 +41,9 @@
 
 #help-section{padding: 20px 12.5px;
 	.wide-col{width: 33.33%;float: left;padding: 0 25px;
+		.image{
+			img{width: 50%;margin: 0 auto;}
+		}
 		.title{font-weight: bold;margin-bottom: 5px;font-size: 16px;color: #191919;}
 		.content{
 			p{font-size: 14.5px;
@@ -130,7 +133,7 @@
 			&#telegram{background-color: #0088cc;}
 			&#google-plus{background-color: #dd4b39;}
 			&#sound-cloud{background-color: #ff3300;}
-			&#imdb{background-color: #f5de50;}
+			&#youtube{background-color: #ff0000;}
 			&:last-child{
 				&:after{display: none;}
 			}
@@ -197,6 +200,53 @@
 	}
 }
 
+#services-section{
+	.section-title{margin-bottom: 22px;}
+	.service{width: 20%;float: left;margin: 15px 0;padding: 0 15px;box-sizing: border-box;position: relative;
+		.image{
+			&#regular-posts{background-image: url('/dist/images/services/regular-posts.svg');}
+			&#social-strategy{background-image: url('/dist/images/services/social-strategy.svg');}
+		}
+		.title{font-size: 13px;font-weight: bold;text-align: center;margin-top: 14px;padding: 0 10px;}
+		.content{text-align: center;margin-top: 8px;font-size: 14px;padding: 0 10px;padding-bottom: 10px;}
+		&#influencer-marketing{
+			&:before{background-image: url('/dist/img/services/influencer-marketing.svg');}
+		}
+		&#regular-posts{
+			&:before{background-image: url('/dist/img/services/regular-posts.svg');}
+		}
+		&#social-strategy{
+			&:before{background-image: url('/dist/img/services/social-strategy.svg');}
+		}
+		&#social-updates{
+			&:before{background-image: url('/dist/img/services/social-updates.svg');}
+		}
+		&#speech{
+			&:before{background-image: url('/dist/img/services/speech.svg');}
+		}
+		&#like-dislike{
+			&:before{background-image: url('/dist/img/services/like-dislike.svg');}
+		}
+		&#online-discussion{
+			&:before{background-image: url('/dist/img/services/online-discussion.svg');}
+		}
+		&#press-release{
+			&:before{background-image: url('/dist/img/services/press-release.svg');}
+		}
+		&#campaign-optimization{
+			&:before{background-image: url('/dist/img/services/campaign-optimization.svg');}
+		}
+		&#article-writing{
+			&:before{background-image: url('/dist/img/services/article-writing.svg');}
+		}
+		&:before{display: block;content: "";height: 100px;width: 100%;display: table;background-size: 120px;background-position: center center;background-repeat: no-repeat;}
+		&:after{display: block;content: "";position: absolute;top: 0;left: 50%;width: 2px;height: 100%;background: #eee;transform: scaleX(0);transition: 500ms;z-index: -1;}
+		&:hover{
+			&:after{height: 100%;transform: scaleX(100);}
+		}
+	}
+}
+
 @media (max-width: 720px) {
 	#steps-section #steps-container{width: 100%;padding: 0 10px;box-sizing: border-box;}
 	#steps-section #steps-container .step{width: 50%;margin-bottom: 2px;float: left;
@@ -208,10 +258,16 @@
 	.feature-box{margin-top: 10px;}
 	#footer #footer-skew{display: none;}
 	.container{width: 100%;padding: 0 10px;box-sizing: border-box;}
-	#footer #footer-other-content{width: 100%;padding: 0 10px;box-sizing: border-box;}
+	#footer #footer-other-content{width: 100%;padding: 0 15px;box-sizing: border-box;}
 	#footer #footer-links{width: 100%;padding: 10px 0;}
 	#footer #footer-form-left{width: 100%;padding: 0 10px;box-sizing: border-box;margin-top: 20px;}
 	#help-section .wide-col{width: 100%;padding: 0 10px;box-sizing: border-box;margin-top: 20px;}
 	#step-description{width: 100%;padding: 20px 10px;box-sizing: border-box;}
+	#footer-links{margin-bottom: 12px;
+		div{float: left;width: 50%;}
+	}
+	#services-section{
+		.service{width: 50%;height: 233px;}
+	}
 	#footer-copy .right{float: left;}
 }

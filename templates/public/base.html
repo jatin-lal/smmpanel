@@ -120,20 +120,24 @@
 						</div>
 					</div>
 					<div class="left" id="footer-links">
-						<p class="title">Links</p>
-						<ul>
-							<li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
-							<li><a href="{% url 'tandc' %}">Terms & Conditions</a></li>
-							<li><a href="{% url 'disclaimer' %}">Disclaimer</a></li>
-							<li><a href="{% url 'about-us' %}">About us</a></li>
-						</ul>
-						<p class="title">Links</p>
-						<ul>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & Conditions</a></li>
-							<li><a href="#">Disclaimer</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-						</ul>
+						<div>
+							<p class="title">Links</p>
+							<ul>
+								<li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+								<li><a href="{% url 'tandc' %}">Terms & Conditions</a></li>
+								<li><a href="{% url 'disclaimer' %}">Disclaimer</a></li>
+								<li><a href="{% url 'about-us' %}">About us</a></li>
+							</ul>
+						</div>
+						<div>
+							<p class="title">Links</p>
+							<ul>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="#">Disclaimer</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="left" id="footer-form-left">
 						<div id="footer-contact-form">
@@ -179,6 +183,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="http://localhost:8080/main.js"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 	</body>
 </html>
