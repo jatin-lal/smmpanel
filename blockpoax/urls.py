@@ -11,6 +11,7 @@ urlpatterns = [
     path('terms-and-conditions', public.tandc, name='tandc'),
     path('disclaimer', public.disclaimer, name='disclaimer'),
     path('about-us', public.aboutUs, name='about-us'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('login', auth.login, name='login'),
     path('register', auth.register, name='register'),
     path('logout', auth.logout, name='logout'),

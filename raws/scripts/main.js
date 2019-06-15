@@ -195,7 +195,13 @@
 	}
 
 	if (document.getElementById("banner")) {
+		document.getElementById("nav").classList.remove("down");
 		window.onscroll = function(event) {
+			screenHeight = window.innerHeight;
+			scrolled = document.documentElement.scrollTop;
+			//if (scrolled < screenHeight) {
+				//document.getElementById("banner").style.backgroundSize = "20%";
+			//}
 			if (document.documentElement.scrollTop > 10) {
 				nav = document.getElementById("nav");
 				if (!nav.classList.contains("down")) {

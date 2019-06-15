@@ -1,4 +1,6 @@
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,6 +26,12 @@ INSTALLED_APPS = [
     'debug_toolbar',
 ]
 
+sentry_sdk.init(
+    dsn="https://8fe645d6071d45058d841bede9a9ba75@sentry.io/1482482",
+    integrations=[DjangoIntegration()]
+)
+
+DEFAULT_FROM_EMAIL = "admin@smmpanel.guru"
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'home'
 
