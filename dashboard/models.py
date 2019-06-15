@@ -84,7 +84,7 @@ class Order(models.Model):
 	status = models.ForeignKey('OrderStatus', on_delete=models.CASCADE)
 	remark = models.CharField(max_length = 5000, blank=True)
 	generate_url = models.FileField(blank = True, default='')
-	slug = models.CharField(max_length = 256, default = "")
+	slug = models.CharField(max_length = 256, default = "", blank=True)
 	created_at = models.DateTimeField(auto_now_add=True, editable=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
@@ -95,6 +95,7 @@ class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	balance = models.DecimalField(max_digits=10, decimal_places=5)
 	spent = models.DecimalField(max_digits=10, decimal_places=5, default = 0)
+	verify_email_slug = models.CharField(max_length = 200)
 	email = models.EmailField(max_length=254)
 	email_verified = models.BooleanField(default = False)
 

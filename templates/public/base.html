@@ -29,7 +29,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 		<style>#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff;display:table;z-index:15;transition:250ms;opacity:1}#preloader #preloader-vertical{display:table-cell;vertical-align:middle}#preloader .preloader-text{font-size:12px;font-weight:bold;margin-top:15px}#preloader.closing{opacity:0}</style>
 	</head>
-	<body bgcolor="#875F9A">
+	<body bgcolor="#191919">
 	{% if messages %}
 	<ul class="messages" id="error-message">
 	    {% for message in messages %}
@@ -150,11 +150,11 @@
 									<form action="/contact">
 										<div class="field">
 											<label for="footer-full-name">Full name</label>
-											<input autocomplete="false" id="footer-full-name" placeholder="Enter your full name" type="text" />
+											<input autocomplete="false" id="footer-full-name" placeholder="Enter your full name" type="text" required />
 										</div>
 										<div class="field">
 											<label for="footer-email-id">Email ID</label>
-											<input autocomplete="false" id="footer-email-id" placeholder="Enter Email ID" type="text" />
+											<input autocomplete="false" id="footer-email-id" placeholder="Enter Email ID" type="text" required />
 										</div>
 										<div class="field">
 											<label for="footer-full-query">Your query</label>
@@ -181,6 +181,17 @@
 							<a href="#">admin@smmpanel.guru</a>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="waveWrapper waveAnimation">
+				<div class="waveWrapperInner bgTop">
+					<div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+				</div>
+				<div class="waveWrapperInner bgMiddle">
+					<div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+				</div>
+				<div class="waveWrapperInner bgBottom">
+					<div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
 				</div>
 			</div>
 		</div>

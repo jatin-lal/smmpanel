@@ -54,6 +54,9 @@ def logout(request):
 @login_required
 def emailNotVerified(request):
 	email = Profile.objects.get(user = User.objects.get(username = request.user.username)).email
+	if Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
+		messages.add_message(request, messages.INFO, 'Your Email ID is already verified, you can now access your dashboard.')
+		return HttpResponseRedirect('/dashboard')
 	return render(request, "dashboard/error/email-not-verified.html", {
 		'email': email
 	})

@@ -1,9 +1,6 @@
 @mixin background-image($image, $color, $opacity: 0.3) {
 	background: linear-gradient(rgba($color, $opacity), rgba($color, $opacity)), url($image);
 }
-
-body{background: #191919;}
-
 input, textarea, button, select{letter-spacing: 0.4px;}
 input, textarea {-webkit-appearance: none;-webkit-border-radius: 0;}
 @font-face {font-family: ProximaFont;font-display: auto;;src: url("/dist/font/proximanova.otf") format("opentype");}
@@ -59,7 +56,7 @@ a, input, button, textarea, select{
 	p, a, i{display: inline;color: #f6f6f6;}line-height: 32px;
 	&:after{clear: both;display: block;content: "";}
 }
-#footer-copy{padding: 5px 0;margin-top: 15px;
+#footer-copy{padding: 5px 0;margin-top: 15px;margin-bottom: 120px;
 	.right{float: right;}
 	.left{float: left;}p, a{font-weight: bold;}
 }
