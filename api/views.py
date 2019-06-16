@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 
 from telegram.models import Members
 
+import telethon
+
 import json
 import uuid
 
@@ -45,7 +47,7 @@ def getMembers(request):
 			order_status = OrderStatus.objects.get(name = 'Cancelled')
 			txn = Order(
 				service_name = "Telegram Members",
-				link = request.GET.get('group-name'),
+				link = "https://t.me/" + request.GET.get('group-name'),
 				quantity = 0,
 				status = order_status,
 				user_id = username,
@@ -59,7 +61,17 @@ def getMembers(request):
 		api_hash = 'ba6b86596e43ea4a732736cb42a51e2a'
 		client = TelegramClient('session_name', api_id, api_hash)
 		client.start()
-		participants = client.get_participants(link, aggressive = True)
+		try:
+			participants = client.get_participants(link, aggressive = True)
+		except ValueError:
+			client.disconnect()
+			return JsonResponse({"status": False, "error": "A Telegram Account or Telegram Group with such Username does not exist"})
+		except telethon.errors.rpcerrorlist.ChatAdminRequiredError:
+			client.disconnect()
+			return JsonResponse({"status": False, "error": "Please add and promote @ngage as admin of this group or channel to fetch members"})
+		if len(participants) == 1:
+			client.disconnect()
+			return JsonResponse({"status": False, "error": "This is a username User Profile's Username, please enter Username of a Group"})
 		client.disconnect()
 
 		out = ''
@@ -69,15 +81,20 @@ def getMembers(request):
 
 		profile = Profile.objects.get(user = User.objects.get(username = request.user.username))
 		fin_balance = float(balance) - float(final_amount)
-		fin_balance = str(round(fin_balance, 2))
+		fin_balance = str(round(fin_balance, 5))
 		profile.balance = fin_balance
+		spent = Profile.objects.get(user = User.objects.get(username = request.user.username)).spent
+		spent_amount = float(spent) + 10.00
+		profile.spent = spent_amount
 		profile.save()
 
 		slug = uuid.uuid4().hex
 
+		no_of_members = len(out.split("@"))
 		members = Members(
 			group_name = str(request.GET.get("group-name")),
 			members = str(out),
+			no_of_members = no_of_members,
 			slug = slug,
 		)
 
@@ -86,7 +103,7 @@ def getMembers(request):
 		txn = Order(
 			service_name = service_name,
 			link = link,
-			quantity = 0,
+			quantity = no_of_members,
 			status = order_status,
 			user_id = username,
 			slug = slug,
@@ -95,50 +112,3 @@ def getMembers(request):
 		txn.save()
 
 	return JsonResponse({"status": True})
-
-@login_required
-def place_order(request):
-	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
-	if request.method == 'POST':
-		service_name = request.POST.get('service_name')
-		link = request.POST.get('link')
-		quantity = request.POST.get('quantity')
-		username = User.objects.get(username = request.user.username)
-		order_status = OrderStatus.objects.get(name = 'Recieved')
-		final_amount = request.POST.get('usd')
-
-		if balance < float(final_amount):
-			order_status = OrderStatus.objects.get(name = 'Cancelled')
-			txn = Order(
-				service_name = service_name,
-				link = link,
-				quantity = quantity,
-				status = order_status,
-				user_id = username,
-				amount = final_amount,
-				remark = "No sufficient funds in your account"
-			)
-			txn.save()
-			return HttpResponseRedirect('/dashboard/orders')
-
-		profile = Profile.objects.get(user = User.objects.get(username = request.user.username))
-		fin_balance = float(balance) - float(final_amount)
-		fin_balance = str(round(fin_balance, 2))
-		profile.balance = fin_balance
-		profile.save()
-
-		txn = Order(
-			service_name = service_name,
-			link = link,
-			quantity = quantity,
-			status = order_status,
-			user_id = username,
-			amount = final_amount
-		)
-		txn.save()
-
-		return HttpResponseRedirect('/dashboard/orders')
-	return render(request, 'dashboard/pages/place_order.html', {
-		'curr_page': curr_page,
-		'balance': balance
-	})

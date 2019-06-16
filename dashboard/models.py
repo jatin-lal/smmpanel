@@ -72,7 +72,7 @@ class OrderStatus(models.Model):
 	name = models.CharField(max_length = 500)
 
 	def __str__(self):
-		return self.name	
+		return self.name
 
 class Order(models.Model):
 	id = models.AutoField(primary_key = True)

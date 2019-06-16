@@ -7,6 +7,8 @@ from userauth import views as auth
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', public.home, name='home'),
+    path('contact', public.contact, name='contact'),
+    path('verify-email/<token>', public.verify, name='verify-email'),
     path('privacy-policy', public.privacyPolicy, name='privacy-policy'),
     path('terms-and-conditions', public.tandc, name='tandc'),
     path('disclaimer', public.disclaimer, name='disclaimer'),

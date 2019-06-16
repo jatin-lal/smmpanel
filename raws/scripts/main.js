@@ -168,11 +168,18 @@
 			getJSON('/api/get-members?group-name=' + document.getElementById("group-name").value,
 				function(err, data) {
 					if (err !== null) {
-						alert('Something went wrong: ' + err);
+						console.log("Error");
+						console.log(data);
 					}
 					else {
-						document.getElementById('telegram-members-modal').style.display = "none";
-						window.location="/dashboard/orders";
+						if (data.status) {
+							document.getElementById('telegram-members-modal').style.display = "none";
+							window.location="/dashboard/orders";
+						}
+						else{
+							document.getElementById("telegram-members-warning").innerHTML = "<p class='error'>" + data.error + "</p>";
+							document.getElementById('telegram-members-overlay').style.display = "none";
+						}
 					}
 				}
 			);
@@ -225,9 +232,21 @@
 		}, 10);
 	}
 
-	amount = document.getElementById("order_quantity");
-	amount.oninput = function(event) {
-		console.log(amount.value);
+	if (document.getElementById("wallet-id")) {
+		document.getElementById("wallet-id").onclick = function(event) {
+		    sel = document.getElementById('services_select');
+	    	min = parseInt(sel.options[sel.selectedIndex].dataset.min);
+	    	max = parseInt(sel.options[sel.selectedIndex].dataset.max);
+	    	entered_quantity = parseInt(document.getElementById("order_quantity").value);
+	    	if (entered_quantity < min || entered_quantity > max) {
+	    		event.preventDefault();
+	    		document.getElementById("quantity-error").innerHTML = "Please enter Quantity between " + min + " and " + max;
+ 	    	}
+ 	    	if (!document.getElementById("link").value.startsWith("http")) {
+ 	    		event.preventDefault();
+	    		document.getElementById("quantity-error").innerHTML = "Please enter a valid link";
+ 	    	}
+		}
 	}
 
 })();
@@ -262,7 +281,7 @@ if (document.getElementById('order_quantity')) {
 	    quantity = document.getElementById('order_quantity').value;
 	    final_amount = parseFloat(opt) * parseInt(quantity) / 1000;
 	    if (final_amount > 0) {
-	        document.getElementById('final-amount').innerHTML = "<p>Total charge : " + final_amount + "$</p>";
+	        document.getElementById('final-amount').innerHTML = "<p>Total charge : " + parseFloat(opt).toFixed(final_amount).toString() + "$</p>";
 	    } else {
 	        document.getElementById('final-amount').innerHTML = "";
 	    }
@@ -272,9 +291,12 @@ if (document.getElementById('order_quantity')) {
 
 if (document.getElementById('order_quantity')) {
 	document.getElementById('services_select').onchange = function() {
+		document.getElementById("quantity-error").innerHTML = "";
 	    sel = document.getElementById('services_select');
 	    var opt = sel.options[sel.selectedIndex].dataset.price;
 	    if (opt > 0) {
+	    	min = sel.options[sel.selectedIndex].dataset.min;
+	    	max = sel.options[sel.selectedIndex].dataset.max;
 	        document.getElementById('ppk').innerHTML = "<p>Charges per thousand is " + parseFloat(opt).toFixed(5).toString() + "$</p><p>Minimum quantity is " + sel.options[sel.selectedIndex].dataset.min + "</p><p>Maximum quantity is " + sel.options[sel.selectedIndex].dataset.max + "</p>";
 	    } else {
 	        document.getElementById('ppk').innerHTML = "";

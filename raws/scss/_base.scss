@@ -91,7 +91,7 @@ a, input, button, textarea, select{
 				input{height: 34px;}
 				textarea{height: 140px;width: 100%;overflow-y: auto;resize: none;padding: 10px;}
 				input, textarea, button{font-size: 13.5px;box-sizing: border-box;border-radius: 5px;font-weight: bold;}
-				input[type='submit']{background-color: #191919;margin-bottom: 15px;color: #fff;margin-top: 15px;}
+				input[type='submit']{background-color: #191919;margin-bottom: 15px;color: #fff;margin-top: 15px;cursor: pointer;}
 	}
 	#social-links{background-color: #fff;padding: 5px 10px;display: inline-block;margin-top: 10px;border-radius: 5px;box-shadow: inset 0px 0px 5px 0 rgba(0,0,0,0.5);
 		ul{
