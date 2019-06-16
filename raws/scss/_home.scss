@@ -142,9 +142,10 @@
 	}
 }
 
-#step-description{width: 100%;width: 740px;margin: 0 auto;background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/dist/img/steps.jpg');border: 1px solid #eee;margin-top: 18px;padding: 15px 15px;box-sizing: border-box;background-size: cover;border-radius: 5px;
-	.steps-title{font-size: 20px;font-weight: bold;margin-bottom: 8px;color: #fff;}
-	li{list-style-type: disc;margin-bottom: 8px;font-size: 14.5px;color: #fff;
+#step-description{width: 100%;width: 740px;margin: 0 auto;background: url('/dist/img/kick-start.svg');margin-top: 18px;padding: 15px 22px;box-sizing: border-box;border-radius: 5px;background-size: 30%;background-repeat: no-repeat;background-position: right;padding: 15px;margin-top: 35px;border: 1px solid #aaa;
+	.description{width: 60%;}
+	.steps-title{font-size: 20px;font-weight: bold;margin-bottom: 8px;color: #333;}
+	li{list-style-type: disc;margin-bottom: 8px;font-size: 14.5px;color: #333;
 		span{font-weight: bold;}
 	}
 }
@@ -245,6 +246,76 @@
 			&:after{height: 100%;transform: scaleX(100);}
 		}
 	}
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: -1;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 120px;
+    bottom: -1px;
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
 }
 
 @media (max-width: 720px) {

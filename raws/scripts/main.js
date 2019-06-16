@@ -224,6 +224,12 @@
 			}, 500);
 		}, 10);
 	}
+
+	amount = document.getElementById("order_quantity");
+	amount.oninput = function(event) {
+		console.log(amount.value);
+	}
+
 })();
 
 function loadOptions() {
@@ -269,7 +275,7 @@ if (document.getElementById('order_quantity')) {
 	    sel = document.getElementById('services_select');
 	    var opt = sel.options[sel.selectedIndex].dataset.price;
 	    if (opt > 0) {
-	        document.getElementById('ppk').innerHTML = "<p>Charges per thousand is " + opt + "$</p><p>Minimum quantity is " + sel.options[sel.selectedIndex].dataset.min + "</p><p>Maximum quantity is " + sel.options[sel.selectedIndex].dataset.max + "</p>";
+	        document.getElementById('ppk').innerHTML = "<p>Charges per thousand is " + parseFloat(opt).toFixed(5).toString() + "$</p><p>Minimum quantity is " + sel.options[sel.selectedIndex].dataset.min + "</p><p>Maximum quantity is " + sel.options[sel.selectedIndex].dataset.max + "</p>";
 	    } else {
 	        document.getElementById('ppk').innerHTML = "";
 	    }

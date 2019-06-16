@@ -3,7 +3,7 @@
 {% load humanize %}
 {% block content %}
 <div id="dashboard-container">
-	<a id="back-button" href="{% url 'transactions' %}"><i class="fas fa-chevron-left"></i> Back</a>
+	<a id="back-button" href="{% url 'new-order' %}"><i class="fas fa-chevron-left"></i> Back</a>
 	<p class="card-title">Your orders</p>
 	{% if orders %}
 	<ul class="transactions-list-history">
@@ -23,6 +23,7 @@
 		{% else %}
 		<li>
 			<p class="order-name"><b>{{ order.service_name }}</b></p>
+			<p class="order-name"><b>{{ order.link }}</b></p>
 			<p class="order-quantity"><b> Quantity :</b> {{ order.quantity }}</p>
 			<p class="order-charge"><b>Order amount :</b> {{ order.amount }} $</p>
 			<p class="order-remark"><b>Remark :</b> {{ order.remark }}</p>

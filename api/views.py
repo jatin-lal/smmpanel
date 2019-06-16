@@ -59,7 +59,7 @@ def getMembers(request):
 		api_hash = 'ba6b86596e43ea4a732736cb42a51e2a'
 		client = TelegramClient('session_name', api_id, api_hash)
 		client.start()
-		participants = client.get_participants("ripple", aggressive = True)
+		participants = client.get_participants(link, aggressive = True)
 		client.disconnect()
 
 		out = ''
