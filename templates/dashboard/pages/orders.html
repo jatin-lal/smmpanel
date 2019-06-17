@@ -11,6 +11,7 @@
 		{% if order.slug %}
 		<li>
 			<p class="order-name"><b>{{ order.service_name }}</b></p>
+			<p class="order-name"><b><a href="https://t.me/{{ order.link }}" target="_blank">https://t.me/{{ order.link }}</a></b></p>
 			<p class="order-charge"><b>Order amount :</b>  {{ order.amount }} $</p>
 			<div class="mrow">
 				<p class="order-time"><b>Order date :</b> {{ order.created_at | date:"SHORT_DATE_FORMAT" }}</p>

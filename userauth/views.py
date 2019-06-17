@@ -12,6 +12,9 @@ from blockpoax.forms import UserRegistrationForm
 from dashboard.models import Profile
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+
+import uuid
 
 def login(request):
 	username = request.POST.get('username')
@@ -39,7 +42,17 @@ def register(request):
 				user = authenticate(username = username, password = password)
 				auth_login(request, user)
 				profile = Profile(user = User.objects.get(username = username), balance = 0, email = email_address)
+				temp_slug = uuid.uuid4().hex
+				profile.verify_email_slug = temp_slug
 				profile.save()
+				print('Link to verify Email ID <a href="http://127.0.0.1:8000/verify-email/' + temp_slug + '">Verify Email ID</a>')
+				send_mail(
+				    'Verify your Email ID',
+				    'Link to verify Email ID <a href="http://127.0.0.1:8000/verify-email/' + temp_slug + '">Verify Email ID</a>',
+				    'admin@smmpanel.guru',
+				    [email_address],
+				    fail_silently=False,
+				)
 				return HttpResponseRedirect('/dashboard')
 			else:
 				messages.add_message(request, messages.INFO, 'Looks like a username with that email or password already exists.')

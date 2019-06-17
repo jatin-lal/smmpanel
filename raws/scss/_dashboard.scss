@@ -45,7 +45,7 @@ li{list-style-type: none;}
 
 #dashboard-container{width: 500px;min-height: 300px;background-color: #fff;position: relative;padding: 15px;margin: 50px auto;box-shadow:0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);box-sizing: border-box;border-radius: 5px;
 	.card-title{font-weight: bold;font-size: 14px;}
-	.card-text{font-size: 13px;margin-top: 10px;}
+	.card-text{font-size: 13px;margin-top: 10px;font-weight: bold;color: #555;}
 	.button{margin-top: 12px;
 		a{color: #fff;display: inline-block;background-color: $theme;font-size: 13px;font-weight: bold;line-height: 32px;padding: 0 10px;border-radius: 5px;}
 	}
@@ -146,6 +146,11 @@ li{list-style-type: none;}
 	.transactions-list-history{margin: 0;padding: 0;
 		li{padding: 10px;border-bottom: 1px solid #eee;
 			p{font-size: 13px;line-height: 20px;}
+			b{
+				a{color: #333;text-decoration: underline;
+					i{font-size: 10px;vertical-align: super;}
+				}
+			}
 			&:last-child{border-bottom: none;}
 		}
 		.transaction-status{margin-top: 12px;border-radius: 5px;box-shadow: -2px 2px 5px 0 rgba(0,0,0,0.15);
@@ -194,7 +199,9 @@ li{list-style-type: none;}
 				button{width: 100%;height: 32px;background-color: $theme;color: #fff;margin-bottom: 15px;font-size: 13px;font-weight: bold;border-radius: 5px;cursor: pointer;}
 			}
 			#telegram-members-warning{padding: 0 20px;margin: 0px 0 10px 0;
-				p{font-size: 12.5px;color: #333;}
+				p{font-size: 12.5px;color: #333;font-weight: bold;
+					&.error{color: #C3272B;}
+				}
 			}
 			.telegram-members-list-field{
 				#telegram-members-link-placeholder{background: $theme;line-height: 32px;padding: 0 10px;width: 92px;float: left;box-sizing: border-box;border-radius: 5px 0 0 5px;
@@ -208,8 +215,41 @@ li{list-style-type: none;}
 	&.open{opacity: 1;
 		#telegram-members-vertical #telegram-members-container #telegram-members-box{transform: translateY(0);}
 	}
-
 }
+
+table{border-collapse: collapse;}
+
+.dashboard-table{width: 100%;margin-top: 15px;
+	a{
+		&, &:visited{color: darken($theme, 5%);}
+	}
+	tr{border-bottom: 1px solid #eee;
+		&:last-child{border-bottom: none;}
+	}
+	th{font-size: 11px;font-weight: bold;}
+	th, td{padding: 4px 8px;line-height: 14px;text-align: center;}
+	td{font-size: 12px;font-weight: bold;
+		p{display: inline-block;padding: 4px 8px;color: #fff;border-radius: 4px;}
+		&.Recieved{p{background-color: #BF55EC;}}
+		&.Cancelled{p{background-color: $red;}}
+		&.Complete{p{background-color: $green;}}
+		&:first-child{text-align: left;}
+	}
+}
+
+.card-inner-title{font-size: 13.5px;font-weight: bold;}
+
+#account-details-row{box-sizing: border-box;margin: 15px -10px;
+	.account-detail{width: 33.33%;padding: 0 7.5px;float: left;box-sizing: border-box;text-align: center;}
+	.account-detail-card{background: $theme;padding: 10px 0;box-sizing: border-box;border-radius: 5px;box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+		p{color: #fff;}
+		.detail-title{font-size: 12px;font-weight: bold;margin-bottom: 6px;}
+		.detail-content{font-size: 13.5px;font-weight: bold;}
+	}
+	&:after{clear: both;display: block;content: "";}
+}
+
+#quantity-error{color: #C3272B;font-weight: bold;font-size: 12px;margin-left: 6px;margin-top: 14px;}
 
 #members-sheet{background: #fff;}
 .members-p{margin-bottom: 14px;font-weight: bold;font-size: 13px;padding: 12px;padding-bottom: 0;padding-left: 10px;

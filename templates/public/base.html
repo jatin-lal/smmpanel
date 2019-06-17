@@ -148,18 +148,19 @@
 									<p>Contact us now</p>
 								</div>
 								<div id="contact-form">
-									<form action="/contact">
+									<form action="{% url 'contact' %}" method="post">
+										{% csrf_token %}
 										<div class="field">
 											<label for="footer-full-name">Full name</label>
-											<input autocomplete="false" id="footer-full-name" placeholder="Enter your full name" type="text" required />
+											<input autocomplete="false" id="footer-full-name" placeholder="Enter your full name" name="full-name" type="text" required />
 										</div>
 										<div class="field">
 											<label for="footer-email-id">Email ID</label>
-											<input autocomplete="false" id="footer-email-id" placeholder="Enter Email ID" type="text" required />
+											<input autocomplete="false" id="footer-email-id" placeholder="Enter Email ID" name="email-id" type="text" required />
 										</div>
 										<div class="field">
 											<label for="footer-full-query">Your query</label>
-											<textarea id="footer-full-query" placeholder="Enter full query"></textarea>
+											<textarea id="footer-full-query" placeholder="Enter full query" name="query" required></textarea>
 										</div>
 										<div class="field">
 											<input type="submit" value="Contact now">

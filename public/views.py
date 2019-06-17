@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
+from dashboard.models import Profile
 from blockpoax.forms import UserRegistrationForm
-
+from django.contrib import messages
 from django.core.mail import send_mail
+
+from django.core.exceptions import ObjectDoesNotExist
 
 def home(request):
 	form = UserRegistrationForm()
@@ -19,6 +21,36 @@ def home(request):
 	return render(request, 'public/pages/home.html', {
 		'form': form
 	})
+
+def verify(request, token):
+	try:
+		profile = Profile.objects.get(verify_email_slug = token)
+	except ObjectDoesNotExist:
+		messages.add_message(request, messages.INFO, 'You have tried to access a wrong URL, please resend verification Email ID')
+		return HttpResponseRedirect('/')
+
+	profile.email_verified = True
+	profile.save()
+
+	messages.add_message(request, messages.INFO, 'Email ID Verified, you can now access dashboard')
+
+	return HttpResponseRedirect('/dashboard')
+
+def contact(request):
+	if request.method == "POST":
+		full_name = request.POST.get("full-name")
+		email_id = request.POST.get('email-id')
+		query = request.POST.get('query')
+
+	send_mail(
+	    full_name + ' contacted by footer contact page',
+	    email_id + ' sent query \n\n ' + query,
+	    'admin@smmpanel.guru',
+	    ['jatinlal1994@gmail.com'],
+	    fail_silently=False,
+	)
+	messages.add_message(request, messages.INFO, 'Thanks for contacting, We will reach out to you within next 24 hours')
+	return HttpResponseRedirect('/')
 
 def privacyPolicy(request):
 	return render(request, 'public/pages/privacypolicy.html', {})

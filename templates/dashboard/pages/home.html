@@ -2,9 +2,46 @@
 
 {% block content %}
 <div id="dashboard-container">
-	<p class="card-title">Welcome to SMMPanel.guru Dashboard</p>
-	<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales urna rutrum, malesuada lorem vitae, imperdiet augue. Vestibulum faucibus malesuada tempus. Nunc eget tristique quam, ac tristique felis. Mauris laoreet metus metus, at aliquam quam sagittis ac. Pellentesque quis odio risus. Sed venenatis, ligula vitae ullamcorper auctor, purus nunc sollicitudin lectus, in condimentum purus lacus in lectus. Donec aliquam libero eget magna ullamcorper sodales. Sed placerat dolor vel ornare auctor. Morbi nisl lectus, varius sit amet leo et, venenatis porttitor eros.</p>
+	<p class="card-title">Hi {{ user.get_username }}, welcome to SMMPanel.guru Dashboard</p>
 	<p class="card-text">Cras luctus, lorem in semper mollis, ante felis dictum nunc, gravida euismod est arcu sit amet ligula. Ut leo arcu, vehicula a porttitor nec, consectetur at arcu. Vestibulum vulputate, ligula at ultricies tincidunt, leo ante fringilla nulla, at pulvinar neque nulla sit amet nibh. Morbi nec mollis dolor. Donec et semper libero, et suscipit ipsum.</p>
+	<div id="account-details-row">
+		<div class="account-detail">
+			<div class="account-detail-card">
+				<p class="detail-title">Total Added</p>
+				<p class="detail-content">200$</p>
+			</div>
+		</div>
+		<div class="account-detail">
+			<div class="account-detail-card">
+				<p class="detail-title">Total Added</p>
+				<p class="detail-content">200$</p>
+			</div>
+		</div>
+		<div class="account-detail">
+			<div class="account-detail-card">
+				<p class="detail-title">Total Spent</p>
+				<p class="detail-content">200$</p>
+			</div>
+		</div>
+	</div>
+	<p class="card-inner-title">Last orders</p>
+	<p class="card-text">Cras luctus, lorem in semper mollis, ante felis dictum nunc, gravida euismod est arcu sit amet ligula. Ut leo arcu, vehicula a porttitor nec, consectetur at arcu. Vestibulum vulputate, ligula at ultricies tincidunt, leo ante fringilla nulla, at pulvinar neque nulla sit amet nibh. Morbi nec mollis dolor. Donec et semper libero, et suscipit ipsum.</p>
+	<table class="dashboard-table">
+		<tr>
+			<th>Link</th>
+			<th>Quantity</th>
+			<th>Status</th>
+		</tr>
+		{% for order in orders %}
+		<tr>
+			{% if order.slug %}<td><a href="https://t.me/{{ order.link }}" target="_blank">https://t.me/{{ order.link }}</a></td>{% else %}<td><a href="{{ order.link }}" target="_blank">{{ order.link }}</a></td>{% endif %}
+			<td>{{ order.quantity }}</td>
+			<td class="{{ order.status }}">
+				<p>{{ order.status }}</p>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
 	<div class="home-buttons">
 		<div class="left">
 			<div class="button">

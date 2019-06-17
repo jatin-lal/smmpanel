@@ -18,12 +18,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
     'corsheaders',
     'public',
     'userauth',
     'dashboard',
     'telegram',
     'debug_toolbar',
+#    'live_support',
 ]
 
 sentry_sdk.init(

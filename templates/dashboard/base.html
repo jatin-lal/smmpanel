@@ -16,6 +16,16 @@
 		{% include 'important.html' %}
 	</head>
 	<body bgcolor="#763568">
+		{% if messages %}
+		<ul class="messages" id="error-message">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		    <div id="close-messages">
+		    	<i class="fas fa-times"></i>
+		    </div>
+		</ul>
+		{% endif %}
 		<div id="top-nav">
 			<div class="left">
 				<div id="dashboard-logo">

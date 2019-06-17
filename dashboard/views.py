@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+import requests
+
 from .models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
 from telegram.models import Members
 from django.contrib.auth.models import User
@@ -11,8 +13,11 @@ def home(request):
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
+
+	orders = Order.objects.filter(user_id = User.objects.get(username = request.user.username)).order_by('-created_at')[:10]
 	return render(request, 'dashboard/pages/home.html', {
-		'balance': balance
+		'balance': balance,
+		'orders': orders
 	})
 
 @login_required
@@ -39,6 +44,35 @@ def newOrder(request):
 				user_id = username,
 				amount = final_amount,
 				remark = "No sufficient funds in your account"
+			)
+			txn.save()
+			return HttpResponseRedirect('/dashboard/orders')
+
+		try:
+			requests.get(link).status_code
+		except requests.exceptions.ConnectionError:
+			order_status = OrderStatus.objects.get(name = 'Cancelled')
+			txn = Order(
+				service_name = service_name,
+				link = link,
+				quantity = quantity,
+				status = order_status,
+				user_id = username,
+				amount = final_amount,
+				remark = "The link you have provided is not working, please check the link"
+			)
+			txn.save()
+			return HttpResponseRedirect('/dashboard/orders')
+		except requests.exceptions.SSLError:
+			order_status = OrderStatus.objects.get(name = 'Cancelled')
+			txn = Order(
+				service_name = service_name,
+				link = link,
+				quantity = quantity,
+				status = order_status,
+				user_id = username,
+				amount = final_amount,
+				remark = "The link you have provided is not working, please check the link"
 			)
 			txn.save()
 			return HttpResponseRedirect('/dashboard/orders')
