@@ -18,14 +18,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'django.contrib.sites',
     'corsheaders',
     'public',
     'userauth',
     'dashboard',
     'telegram',
     'debug_toolbar',
-#    'live_support',
 ]
 
 sentry_sdk.init(
@@ -100,8 +98,12 @@ WSGI_APPLICATION = 'blockpoax.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'smmpanel',
+        'USER': 'smmpanel',
+        'PASSWORD': 'alpha2beta',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

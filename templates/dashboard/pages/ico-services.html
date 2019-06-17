@@ -1,5 +1,8 @@
 {% extends 'dashboard/base.html' %}
 
 {% block content %}
-
+<div id="dashboard-container">
+	<p class="card-title">Hi {{ user.get_username }}, welcome to SMMPanel.guru Dashboard</p>
+	<p class="card-text"></p>
+</div>
 {% endblock %}

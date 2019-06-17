@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 @login_required
 def home(request):
+	curr = "home"
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
@@ -17,7 +18,8 @@ def home(request):
 	orders = Order.objects.filter(user_id = User.objects.get(username = request.user.username)).order_by('-created_at')[:10]
 	return render(request, 'dashboard/pages/home.html', {
 		'balance': balance,
-		'orders': orders
+		'orders': orders,
+		'curr': curr
 	})
 
 @login_required
