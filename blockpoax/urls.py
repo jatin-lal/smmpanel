@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', public.home, name='home'),
     path('contact', public.contact, name='contact'),
+    path('resend-email', public.resendEmail, name='resend-email'),
     path('verify-email/<token>', public.verify, name='verify-email'),
     path('privacy-policy', public.privacyPolicy, name='privacy-policy'),
     path('terms-and-conditions', public.tandc, name='tandc'),

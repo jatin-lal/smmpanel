@@ -2,8 +2,8 @@
 
 {% block content %}
 <div id="dashboard-container">
-	<p class="card-title">Hi {{ user.get_username }}, welcome to SMMPanel.guru Dashboard</p>
-	<p class="card-text">Cras luctus, lorem in semper mollis, ante felis dictum nunc, gravida euismod est arcu sit amet ligula. Ut leo arcu, vehicula a porttitor nec, consectetur at arcu. Vestibulum vulputate, ligula at ultricies tincidunt, leo ante fringilla nulla, at pulvinar neque nulla sit amet nibh. Morbi nec mollis dolor. Donec et semper libero, et suscipit ipsum.</p>
+	<p class="card-title">Hi {{ user.get_username }}</p>
+	<p class="card-text"></p>
 	<div id="account-details-row">
 		<div class="account-detail">
 			<div class="account-detail-card">
@@ -25,7 +25,8 @@
 		</div>
 	</div>
 	<p class="card-inner-title">Last orders</p>
-	<p class="card-text">Cras luctus, lorem in semper mollis, ante felis dictum nunc, gravida euismod est arcu sit amet ligula. Ut leo arcu, vehicula a porttitor nec, consectetur at arcu. Vestibulum vulputate, ligula at ultricies tincidunt, leo ante fringilla nulla, at pulvinar neque nulla sit amet nibh. Morbi nec mollis dolor. Donec et semper libero, et suscipit ipsum.</p>
+	{% if orders %}
+	<p class="card-text">Here is a list of last {{ orders | length }} orders placed by you. To view all orders, please go to <b><a href="{% url 'orders' %}">Orders</a></b> page.</p>
 	<table class="dashboard-table">
 		<tr>
 			<th>Link</th>
@@ -42,6 +43,9 @@
 		</tr>
 		{% endfor %}
 	</table>
+	{% else %}
+	<p class="card-text">You have not placed any orders. The orders that you place will appear here.</p>
+	{% endif %}
 	<div class="home-buttons">
 		<div class="left">
 			<div class="button">

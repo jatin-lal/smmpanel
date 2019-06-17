@@ -7,6 +7,8 @@ from blockpoax.forms import UserRegistrationForm
 from django.contrib import messages
 from django.core.mail import send_mail
 
+from django.contrib.auth.decorators import login_required
+
 from django.core.exceptions import ObjectDoesNotExist
 
 def home(request):
@@ -35,6 +37,20 @@ def verify(request, token):
 	messages.add_message(request, messages.INFO, 'Email ID Verified, you can now access dashboard')
 
 	return HttpResponseRedirect('/dashboard')
+
+@login_required
+def resendEmail(request):
+	email = User.objects.get(username = request.user.username).email
+	temp_slug = Profile.objects.get(username = request.user.username).verify_email_slug
+	send_mail(
+	    'Verify your Email ID',
+	    'Link to verify Email ID <a href="https://smmpanel.guru/verify-email/' + temp_slug + '">Verify Email ID</a>',
+	    'admin@smmpanel.guru',
+	    [email],
+	    fail_silently=False,
+	)
+	messages.add_message(request, messages.INFO, 'Confirmation Email resent to ' + email)
+	return HttpResponseRedirect('/')
 
 def contact(request):
 	if request.method == "POST":

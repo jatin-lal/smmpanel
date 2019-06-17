@@ -28,7 +28,12 @@
 		<div id="top-nav">
 			<div class="left">
 				<div id="dashboard-logo">
-					<a id="logo" href="{% url 'dashboard-home' %}">SMMPanel</a>
+					<a id="logo" href="{% url 'home' %}">
+						<div id="logo-img">
+							<img src="{% static 'img/logo.png' %}" />
+						</div>
+						<p><b>SMM</b>Panel</p>
+					</a>
 				</div>
 			</div>
 			<div class="right">
@@ -40,6 +45,16 @@
 		</div>
 		<div id="side-nav">
 			<ul>
+				<li class="{% if curr == 'home' %}selected{% endif %}">
+					<a href="{% url 'dashboard-home' %}">
+						<div class="icon">
+							<i class="fas fa-home"></i>
+						</div>
+						<div class="name">
+							<p>Home</p>
+						</div>
+					</a>
+				</li>
 				<li class="{% if curr == 'new-order' %}selected{% endif %}">
 					<a href="{% url 'new-order' %}">
 						<div class="icon">
@@ -66,7 +81,7 @@
 							<i class="fas fa-wallet"></i>
 						</div>
 						<div class="name">
-							<p>Wallet</p>
+							<p>Add funds</p>
 						</div>
 					</a>
 				</li>
@@ -90,6 +105,16 @@
 						</div>
 					</a>
 				</li>
+				<li>
+					<a href="{% url 'ico-services' %}">
+						<div class="icon">
+							<i class="fab fa-bitcoin"></i>
+						</div>
+						<div class="name">
+							<p>ICO Services</p>
+						</div>
+					</a>
+				</li>
 				<!--<li>
 					<a href="{% url 'website-services' %}">
 						<div class="icon">
@@ -100,16 +125,7 @@
 						</div>
 					</a>
 				</li>
-				<li>
-					<a href="{% url 'ico-services' %}">
-						<div class="icon">
-							<i class="fab fa-bitcoin"></i>
-						</div>
-						<div class="name">
-							<p>ICO</p>
-						</div>
-					</a>
-				</li>
+				
 				<li>
 					<a href="{% url 'press-release-services' %}">
 						<div class="icon">

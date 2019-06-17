@@ -18,6 +18,15 @@ a, input, button, textarea, select{
 #content{background-color: #ffffff;width: 100vw;overflow-x: hidden;padding-bottom: 75px;position: relative;}
 #nav, #footer{}
 #nav{
+	#logo{background: #f4f5f5;display: inline-block;border-radius: 4px;margin: 4px 0;
+		a{display: block;
+			p{float: left;line-height: 40px;padding-right: 8px;font-size: 24px;color: #333;}
+			&:after{clear: both;display: block;content: "";}
+		}
+	}
+	#logo-img{float: left;margin: 0;
+		img{height: 36px;vertical-align: middle;border-radius: 5px;margin: 1px 4px 3px 4px;}
+	}
 	.row:after{clear: both;display: block;content: "";}
 	.left{float: left;}
 	.right{
@@ -48,7 +57,7 @@ a, input, button, textarea, select{
 .col{padding: 0 10px;box-sizing: border-box;}
 .three-col{width: 33.33%;float: left;}
 #logo{
-	p{font-family: "Anton";font-size: 28px;line-height: 48px;color: #fff;}
+	p{font-family: ProximaFont, sans-serif;font-size: 28px;line-height: 48px;color: #fff;}
 }
 .copy-footer{
 	p, a{font-size: 12px;}

@@ -45,10 +45,9 @@ def register(request):
 				temp_slug = uuid.uuid4().hex
 				profile.verify_email_slug = temp_slug
 				profile.save()
-				print('Link to verify Email ID <a href="http://127.0.0.1:8000/verify-email/' + temp_slug + '">Verify Email ID</a>')
 				send_mail(
 				    'Verify your Email ID',
-				    'Link to verify Email ID <a href="http://127.0.0.1:8000/verify-email/' + temp_slug + '">Verify Email ID</a>',
+				    'Link to verify Email ID <a href="https://smmpanel.guru/verify-email/' + temp_slug + '">Verify Email ID</a>',
 				    'admin@smmpanel.guru',
 				    [email_address],
 				    fail_silently=False,
@@ -58,7 +57,6 @@ def register(request):
 				messages.add_message(request, messages.INFO, 'Looks like a username with that email or password already exists.')
 				return HttpResponseRedirect('/')
 	return HttpResponseRedirect('/')
-
 
 def logout(request):
 	auth_logout(request)
