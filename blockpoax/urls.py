@@ -12,6 +12,8 @@ urlpatterns = [
     path('verify-email/<token>', public.verify, name='verify-email'),
     path('privacy-policy', public.privacyPolicy, name='privacy-policy'),
     path('terms-and-conditions', public.tandc, name='tandc'),
+    path('refund-policy', public.refundPolicy, name='refund-policy'),
+    path('our-services', public.ourServices, name='our-services'),
     path('disclaimer', public.disclaimer, name='disclaimer'),
     path('about-us', public.aboutUs, name='about-us'),
     path('accounts/', include('django.contrib.auth.urls')),

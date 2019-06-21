@@ -23,7 +23,7 @@
 }
 
 .feature-box{text-align: center;background-color: $theme;margin-top: 20px;padding: 20px 15px;border-radius: 10px;transform: scale(1);transition: 250ms;box-shadow: 0 0 0 0 rgba(0,0,0,0.15);
-	.icon{
+	.icon{margin-bottom: 12px;
 		i{font-size: 38px;color: #fff;}
 	}
 	.title{
@@ -153,7 +153,19 @@
 #register-section{}
 
 #request-quotation-modal{
-	.modal-container{max-width: 340px;}
+	#close-auth-box{position: absolute;top: 12px;right: 12px;
+		i{font-size: 18px;color: #fff;cursor: pointer;text-shadow: 2px -2px 5px rgba(0,0,0,0.15);}
+	}
+	form:after{clear: both;display: block;content: "";}
+	.modal-container{max-width: 600px;}
+	.modal-box{position: relative;}
+	.modal-container:after{clear: both;display: block;content: "";}
+	.modal-header{width: 50%;float: left;height: 380px;border-radius: 0 5px 5px 0;margin-bottom: 0;}
+	.modal-body{width: 50%;float: left;height: 380px;background: #fff;box-sizing: border-box;border-radius: 5px 0 0 5px;position: relative;
+		.modal-buttons{position: absolute;bottom: 10px;left: 0;width: 100%;box-sizing: border-box;}
+	}
+	.login-modal-title{font-size: 24px;font-weight: bold;padding: 10px 15px;}
+	.modal-header-content{font-size: 13px;font-weight: bold;padding: 10px 18px;padding-top: 8px;margin-bottom: 12px;}
 	.right{float: right;}
 	.other-clear{padding: 0 25px;}
 	.other-clear:after{clear: both;display: block;content: "";}
@@ -341,4 +353,6 @@
 		.service{width: 50%;height: 233px;}
 	}
 	#footer-copy .right{float: left;}
+	#request-quotation-modal .modal-body{width: 100%;}
+	#request-quotation-modal .modal-header{display: none;}
 }

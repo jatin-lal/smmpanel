@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from dashboard.models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
 from django.contrib.auth.models import User
-
+from django.contrib import messages
 from telegram.models import Members
 
 import telethon
@@ -55,6 +55,7 @@ def getMembers(request):
 				remark = "No sufficient funds in your account"
 			)
 			txn.save()
+			messages.add_message(request, messages.ERROR, 'No sufficient funds in your account')
 			return HttpResponseRedirect('/dashboard/orders')
 
 		api_id = 667824
@@ -110,5 +111,7 @@ def getMembers(request):
 			amount = 10
 		)
 		txn.save()
+
+		messages.add_message(request, messages.SUCCESS, 'Group fetched succesfully, click on Download file to view usernames')
 
 	return JsonResponse({"status": True})

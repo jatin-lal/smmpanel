@@ -17,6 +17,13 @@
 				document.getElementById("request-quotation-modal").style.display = "none";
 			}, 500);
 		}
+		document.getElementById("close-auth-box").onclick = function(event) {
+			document.getElementsByTagName("BODY")[0].style.overflow = "auto";
+			document.getElementById("request-quotation-modal").classList.remove('open');
+			setTimeout(function(){
+				document.getElementById("request-quotation-modal").style.display = "none";
+			}, 500);
+		}
 	}
 
 	if (document.getElementById('paytm-page')) {
