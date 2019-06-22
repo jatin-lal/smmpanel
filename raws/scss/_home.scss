@@ -110,11 +110,11 @@
 	.right{float: right;}
 	.left{float: left;}
 	#request-quotation-submit, #request-quotation-cancel{color: #fff;display: block;line-height: 32px;padding: 0 10px;border-radius: 5px;font-size: 13px;font-weight: bold;cursor: pointer;transition: 100ms;}
-	#request-quotation-cancel{background: $red;
+	#request-quotation-cancel{background: $red;border-bottom: 4px solid darken($red, 8%);
 		i{font-size: 0.8em;margin-right: 4px;}
 		&:hover{background-color: darken($red, 10%)}
 	}
-	#request-quotation-submit{background: $green;
+	#request-quotation-submit{background: $green;border-bottom: 4px solid darken($green, 8%);
 		i{font-size: 0.8em;margin-left: 4px;}
 		&:hover{background-color: darken($green, 10%)}
 	}
@@ -144,9 +144,13 @@
 
 #step-description{width: 100%;width: 740px;margin: 0 auto;background: url('/dist/img/kick-start.svg');margin-top: 18px;padding: 15px 22px;box-sizing: border-box;border-radius: 5px;background-size: 30%;background-repeat: no-repeat;background-position: right;padding: 15px;margin-top: 35px;border: 1px solid #aaa;
 	.description{width: 60%;}
-	.steps-title{font-size: 20px;font-weight: bold;margin-bottom: 8px;color: #333;}
+	.steps-title{font-size: 20px;font-weight: bold;margin-bottom: 16px;color: #333;text-align: center;
+		span{
+			&.guru{color: #0098db;}
+		}
+	}
 	li{list-style-type: disc;margin-bottom: 8px;font-size: 14.5px;color: #333;
-		span{font-weight: bold;}
+		span{font-weight: bold;display: block;margin-bottom: 2px;margin-top: 12px;}
 	}
 }
 
@@ -155,6 +159,13 @@
 #request-quotation-modal{
 	#close-auth-box{position: absolute;top: 12px;right: 12px;
 		i{font-size: 18px;color: #fff;cursor: pointer;text-shadow: 2px -2px 5px rgba(0,0,0,0.15);}
+	}
+	.table-header{display: table;}
+	.quotation-modal-vertical{display: table-cell;vertical-align: middle;
+		p{line-height: 24px;margin-top: 32px;}
+	}
+	.modal-header{text-align: center;padding: 40px 0;
+		.fa-user{font-size: 42px;color: #fff;}
 	}
 	form:after{clear: both;display: block;content: "";}
 	.modal-container{max-width: 600px;}
