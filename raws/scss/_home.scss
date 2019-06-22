@@ -316,18 +316,21 @@
    -webkit-animation: move-wave 3s;
    -webkit-animation-delay: 1s;
    animation-delay: 1s;
+   background-image: url('/dist/img/waves/wave-top.png');
 }
 .waveMiddle {
     background-size: 50% 120px;
 }
 .waveAnimation .waveMiddle {
     animation: move_wave 10s linear infinite;
+    background-image: url('/dist/img/waves/wave-mid.png');
 }
 .waveBottom {
     background-size: 50% 100px;
 }
 .waveAnimation .waveBottom {
     animation: move_wave 15s linear infinite;
+    background-image: url('/dist/img/waves/wave-bot.png');
 }
 
 @media (max-width: 720px) {
