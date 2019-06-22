@@ -1,8 +1,82 @@
 {% extends 'dashboard/base.html' %}
-
+{% load static %}
 {% block content %}
-<div id="dashboard-container">
-	<p class="card-title">Hi {{ user.get_username }}, welcome to SMMPanel.guru Dashboard</p>
-	<p class="card-text"></p>
+<div id="dashboard-container" class="ico-services">
+	<div id="ico-title">
+		<div id="ico-banner">
+			<div id="ico-banner-inner">
+				<p>Attract More</p>
+				<p>Investor Attention</p>
+				<div id="rotating-cog" class="rotating">
+					<i class="fas fa-cog"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="ico-services">
+		<ul>
+			<li>
+				<p>SEO of Project Website</p>
+			</li>
+			<li>
+				<p>White Board Animation Video</p>
+			</li>
+			<li>
+				<p>Bitcoin Talk and ANN Thread</p>
+			</li>
+			<li>
+				<p>Press Release on top 700 News Websites ( Global )</p>
+			</li>
+			<li>
+				<p>All published Press Releases highlighted on Google, Bing and Yahoo</p>
+			</li>
+			<li>
+				<p>Total PR media outreach of 2M to 5M</p>
+			</li>
+			<li>
+				<p>1 ICO Expert review on ICO Bench</p>
+			</li>
+			<li>
+				<p>High quality Banners and Flyers for Social Media Marketing</p>
+			</li>
+			<li>
+				<p>5 articles in Reddit - Trending in Crypto Subreddits</p>
+			</li>
+			<li>
+				<p>7,000 Twitter Crypto Followers with 300k outreach</p>
+			</li>
+			<li>
+				<p>Facebook traction with 7k likes and 200k outreach</p>
+			</li>
+			<li>
+				<p>1,500 Youtube Subscribers and 10k+ Youtube views with more than 50% watch time</p>
+			</li>
+			<li>
+				<p>3,000 crypto subscribers on Reddit</p>
+			</li>
+			<li>
+				<p>Telegram community buildup with more than 10k members</p>
+			</li>
+			<li>
+				<p>Listing on 10 ICO reviews websites</p>
+			</li>
+			<li>
+				<p>Email Newsletter to 25K authentic crypto members</p>
+			</li>
+			<li>
+				<p>Telegram bot for real time tracking of your group</p>
+			</li>
+		</ul>
+		<div id="buy-package-button">
+			<a href="https://t.me/smmpanel" target="_blank">
+				<i class="fab fa-telegram-plane"></i> Buy package on Telegram
+			</a>
+		</div>
+		<div id="download-brochure-button">
+			<a href="{% static 'docs/SMMPanel ICO Proposal.pdf' %}" target="_blank">
+				<i class="fas fa-cloud-download-alt"></i> Download our brochure
+			</a>
+		</div>
+	</div>
 </div>
 {% endblock %}

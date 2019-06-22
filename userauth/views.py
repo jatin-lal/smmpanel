@@ -14,6 +14,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
+
 import uuid
 
 def login(request):
@@ -45,8 +49,22 @@ def register(request):
 				temp_slug = uuid.uuid4().hex
 				profile.verify_email_slug = temp_slug
 				profile.save()
+
+				"""plaintext = get_template('mail/verify-email.txt')
+				htmly = get_template('mail/verify-email.html')
+
+				subject, from_email, to = 'Verify your Email ID with SMMPanel', 'admin@smmpanel.guru', email_address
+				print("Trying to send Email to " + email_address)
+
+				text_content = plaintext.render({ 'email': email_address, 'slug': temp_slug })
+				html_content = htmly.render({ 'email': email_address, 'slug': temp_slug })
+
+				msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+				msg.attach_alternative(html_content, "text/html")
+				msg.send()"""
+
 				send_mail(
-				    'Verify your Email ID',
+				    '',
 				    'Link to verify Email ID <a href="https://smmpanel.guru/verify-email/' + temp_slug + '">Verify Email ID</a>',
 				    'admin@smmpanel.guru',
 				    [email_address],
@@ -54,7 +72,7 @@ def register(request):
 				)
 				return HttpResponseRedirect('/dashboard')
 			else:
-				messages.add_message(request, messages.INFO, 'Looks like a username with that email or password already exists.')
+				messages.add_message(request, messages.ERROR, 'Looks like a username with that email or password already exists.')
 				return HttpResponseRedirect('/')
 	return HttpResponseRedirect('/')
 
@@ -66,7 +84,7 @@ def logout(request):
 def emailNotVerified(request):
 	email = Profile.objects.get(user = User.objects.get(username = request.user.username)).email
 	if Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
-		messages.add_message(request, messages.INFO, 'Your Email ID is already verified, you can now access your dashboard.')
+		messages.add_message(request, messages.INFO, 'Email ID verified, you can now access your dashboard')
 		return HttpResponseRedirect('/dashboard')
 	return render(request, "dashboard/error/email-not-verified.html", {
 		'email': email

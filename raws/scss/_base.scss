@@ -21,6 +21,7 @@ a, input, button, textarea, select{
 	#logo{background: #f4f5f5;display: inline-block;border-radius: 4px;margin: 4px 0;
 		a{display: block;
 			p{float: left;line-height: 40px;padding-right: 8px;font-size: 24px;color: #333;}
+			span{font-weight: bold;color: #0098db;text-transform: uppercase;}
 			&:after{clear: both;display: block;content: "";}
 		}
 	}
@@ -63,6 +64,12 @@ a, input, button, textarea, select{
 	p, a{font-size: 12px;}
 	i{font-size: 11px;margin-right: 4px;}
 	p, a, i{display: inline;color: #f6f6f6;}line-height: 32px;
+	.right{
+		a{margin-right: 10px;
+			&:last-child{margin-right: 0;}
+		}
+		i{margin-right: 3px;}
+	}
 	&:after{clear: both;display: block;content: "";}
 }
 #footer-copy{padding: 5px 0;margin-top: 15px;margin-bottom: 120px;
@@ -128,8 +135,12 @@ a, input, button, textarea, select{
 	&.closing{opacity: 0;}
 }
 
-#error-message{position: fixed;bottom: 0;left: 0;width: 100%;z-index: 50;background: #dd4b39;padding: 0 10px;box-sizing: border-box;transform: translateY(0%);opacity: 1;transition: 500ms;
-	li{line-height: 48px;font-size: 13px;font-weight: bold;color: #fff;}
+#error-message{position: fixed;bottom: 0;left: 0;width: 100%;z-index: 50;box-sizing: border-box;transform: translateY(0%);opacity: 1;transition: 500ms;margin: 0;padding: 0;
+	li{line-height: 48px;font-size: 13px;font-weight: bold;color: #fff;padding: 0 10px;
+		&.success{background: #26A65B;}
+		&.error{background: #dd4b39;}
+		&.info{background: #ffa400;}
+	}
 	#close-messages{position: absolute;top: 15px;right: 25px;font-size: 14px;color: #fff;cursor: pointer;
 		i{font-size: 16px;}
 	}
@@ -146,7 +157,10 @@ a, input, button, textarea, select{
 				.title{font-size: 16px;font-weight: bold;margin-bottom: 15px;}
 				.text{font-size: 13px;margin-bottom: 15px;}
 				#resend-mail-button{text-align: center;
-					a{font-size: 13px;font-weight: bold;color: #f6f6f6;background-color: $theme;padding: 5px 12px;display: inline-block;border-radius: 5px;box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);}
+					a{font-size: 13px;font-weight: bold;color: #f6f6f6;background-color: $theme;padding: 5px 12px;display: inline-block;border-radius: 5px;box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);margin-right: 8px;
+						i{margin-right: 3px;}
+						&:last-child{margin-right: 0;}
+					}
 				}
 			}
 		}
@@ -166,6 +180,8 @@ a, input, button, textarea, select{
 	}
 	a{color: #fff;text-decoration: underline;}
 }
+
+#public-content-container{padding-top: 62px;width: 100%;padding-left: 15px;padding-right: 15px;box-sizing: border-box;max-width: 480px;}
 
 @media (max-width: 720px) {
 	#nav{padding: 0 10px;

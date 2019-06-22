@@ -7,20 +7,20 @@
 	<div id="account-details-row">
 		<div class="account-detail">
 			<div class="account-detail-card">
-				<p class="detail-title">Total Added</p>
-				<p class="detail-content">200$</p>
-			</div>
-		</div>
-		<div class="account-detail">
-			<div class="account-detail-card">
-				<p class="detail-title">Total Added</p>
-				<p class="detail-content">200$</p>
+				<p class="detail-title">Total Balance</p>
+				<p class="detail-content">{{ balance }}$</p>
 			</div>
 		</div>
 		<div class="account-detail">
 			<div class="account-detail-card">
 				<p class="detail-title">Total Spent</p>
-				<p class="detail-content">200$</p>
+				<p class="detail-content">{{ spent }}$</p>
+			</div>
+		</div>
+		<div class="account-detail">
+			<div class="account-detail-card">
+				<p class="detail-title">No. of orders</p>
+				<p class="detail-content">{{ orders | length }}</p>
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from dashboard.models import Profile
+from django.contrib.auth.models import User
 from blockpoax.forms import UserRegistrationForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -40,8 +41,9 @@ def verify(request, token):
 
 @login_required
 def resendEmail(request):
-	email = User.objects.get(username = request.user.username).email
-	temp_slug = Profile.objects.get(username = request.user.username).verify_email_slug
+	profile = Profile.objects.get(user = User.objects.get(username = request.user.username))
+	email = profile.email
+	temp_slug = profile.verify_email_slug
 	send_mail(
 	    'Verify your Email ID',
 	    'Link to verify Email ID <a href="https://smmpanel.guru/verify-email/' + temp_slug + '">Verify Email ID</a>',
@@ -49,7 +51,7 @@ def resendEmail(request):
 	    [email],
 	    fail_silently=False,
 	)
-	messages.add_message(request, messages.INFO, 'Confirmation Email resent to ' + email)
+	messages.add_message(request, messages.INFO, 'Confirmation Email sent again to ' + email)
 	return HttpResponseRedirect('/')
 
 def contact(request):
@@ -67,6 +69,12 @@ def contact(request):
 	)
 	messages.add_message(request, messages.INFO, 'Thanks for contacting, We will reach out to you within next 24 hours')
 	return HttpResponseRedirect('/')
+
+def refundPolicy(request):
+	return render(request, 'public/pages/refund-policy.html', {})
+
+def ourServices(request):
+	return render(request, 'public/pages/our-services.html', {})
 
 def privacyPolicy(request):
 	return render(request, 'public/pages/privacypolicy.html', {})

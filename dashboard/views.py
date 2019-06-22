@@ -2,22 +2,25 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 import requests
-
 from .models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
 from telegram.models import Members
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib import messages
 
 @login_required
 def home(request):
 	curr = "home"
-	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
+	profile = Profile.objects.get(user = User.objects.get(username = request.user.username))
+	balance = profile.balance
+	spent = profile.spent
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
 
 	orders = Order.objects.filter(user_id = User.objects.get(username = request.user.username)).order_by('-created_at')[:10]
 	return render(request, 'dashboard/pages/home.html', {
 		'balance': balance,
+		'spent': spent,
 		'orders': orders,
 		'curr': curr
 	})
@@ -48,6 +51,7 @@ def newOrder(request):
 				remark = "No sufficient funds in your account"
 			)
 			txn.save()
+			messages.add_message(request, messages.ERROR, 'No sufficient funds in your account')
 			return HttpResponseRedirect('/dashboard/orders')
 
 		try:
@@ -64,6 +68,7 @@ def newOrder(request):
 				remark = "The link you have provided is not working, please check the link"
 			)
 			txn.save()
+			messages.add_message(request, messages.ERROR, 'Please check the link you have provided')
 			return HttpResponseRedirect('/dashboard/orders')
 		except requests.exceptions.SSLError:
 			order_status = OrderStatus.objects.get(name = 'Cancelled')
@@ -98,7 +103,11 @@ def newOrder(request):
 			amount = final_amount
 		)
 		txn.save()
+
+		messages.add_message(request, messages.SUCCESS, 'Your order has been placed succesfully')
+
 		return HttpResponseRedirect('/dashboard/orders')
+
 	return render(request, 'dashboard/pages/new-order.html', {
 		'balance': balance,
 		'curr': curr

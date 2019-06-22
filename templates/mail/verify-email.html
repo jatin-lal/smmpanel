@@ -5,13 +5,30 @@
 		<title>Demystifying Email Design</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<style>
-			#mail-content{width: 100%;padding: 0 15px;max-width: 420px;}
+			body, div, p{margin: 0;padding: 0;}
+			p, a{-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+			p, a{font-family: Helvetica;font-weight: 500;font-size: 13px;color: #555;line-height: 18px;}
+			#mail-title{padding: 28px 10px 8px 8px;}
+			#mail-title p{font-size: 32px;margin-left: 4px;}
+			#mail-content{width: 100%;padding: 10px 15px;max-width: 650px;box-sizing: border-box;}
+			#mail-text{padding: 15px 10px 8px 14px;}
+			#mail-text p{font-size: 15px;line-height: 24px;}
+			#verify-email-button{text-align: center;padding: 14px 15px 10px 15px;}
+			#verify-email-button a{font-size: 14px;text-decoration: none;color: #fff;background: #763568;padding: 5px 10px;border-radius: 4px;font-weight: bold;}
+			#top-banner{background-color: #ee5522;background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23ca481d' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");min-height: 140px;}
 		</style>
 	</head>
 	<body>
 		<div id="mail-content">
-			<div id="top-banner">
-				
+			<div id="top-banner"></div>
+			<div id="mail-title">
+				<p>Verify your Email ID</p>
+			</div>
+			<div id="mail-text">
+				<p>To continue using our Dashboard, you will have to Confirm your Email ID first. Please click on the button below to consinue using SMMPanel.guru</p>
+			</div>
+			<div id="verify-email-button">
+				<a href="https://smmpanel.guru/verify-email/{{slug}}">Confirm your Email ID</a>
 			</div>
 		</div>
 	</body>
