@@ -34,13 +34,13 @@
 	}
 
 	if (document.getElementById("error-message")) {
-		document.getElementById("close-messages").onclick = function(event) {
+		setTimeout(function() {
 			document.getElementById("error-message").classList.add("closing");
 			setTimeout(function() {
 				var element = document.getElementById("error-message");
     			element.parentNode.removeChild(element);
 			}, 500);
-		}
+		}, 3500);
 	}
 
 	else if (document.getElementById('bitcoin-page')) {

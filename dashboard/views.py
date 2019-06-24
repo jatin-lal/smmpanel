@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 import requests
-from .models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
+from .models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, Upi, Profile
 from telegram.models import Members
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
@@ -165,7 +165,7 @@ def press(request):
 	})
 
 @login_required
-def paytm(request):
+def upi(request):
 	curr = 'wallet'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
@@ -178,7 +178,7 @@ def paytm(request):
 		status = Status.objects.get(name = 'Pending')
 		usd_value = request.POST.get('usd_value')
 
-		txn = PayTM(
+		txn = Upi(
 			number = number,
 			amount = amount,
 			user_id = username,
@@ -188,8 +188,8 @@ def paytm(request):
 		)
 
 		txn.save()
-		return HttpResponseRedirect('/dashboard/paytm-transactions')
-	return render(request, 'dashboard/add-funds/paytm.html', {
+		return HttpResponseRedirect('/dashboard/upi-transactions')
+	return render(request, 'dashboard/add-funds/upi.html', {
 		'balance': balance,
 		'curr': curr
 	})
@@ -326,13 +326,13 @@ def paypalTransactions(request):
 	})
 
 @login_required
-def paytmTransactions(request):
+def upiTransactions(request):
 	curr = 'transactions'
 	balance = Profile.objects.get(user = User.objects.get(username = request.user.username)).balance
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
-	transactions = PayTM.objects.filter(user_id = User.objects.get(username = request.user.username))
-	return render(request, 'dashboard/transactions/paytm.html', {
+	transactions = Upi.objects.filter(user_id = User.objects.get(username = request.user.username))
+	return render(request, 'dashboard/transactions/upi.html', {
 		'transactions': transactions,
 		'balance': balance,
 		'curr': curr

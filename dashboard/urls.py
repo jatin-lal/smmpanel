@@ -12,7 +12,7 @@ urlpatterns = [
     path('ico-services', dashboard.ico, name='ico-services'),
     path('press-release-services', dashboard.press, name='press-release-services'),
 
-    path('add-funds-paytm', dashboard.paytm, name='add-paytm'),
+    path('add-funds-upi', dashboard.upi, name='add-upi'),
     path('add-funds-paypal', dashboard.paypal, name='add-paypal'),
     path('add-funds-bitcoin', dashboard.bitcoin, name='add-bitcoin'),
     path('add-funds-ethereum', dashboard.ethereum, name='add-ethereum'),
@@ -23,7 +23,7 @@ urlpatterns = [
     path('telegram-members/<slug>', dashboard.telegramMembers, name='telegram-members'),
 
     path('paypal-transactions', dashboard.paypalTransactions, name="paypal-transactions"),
-    path('paytm-transactions', dashboard.paytmTransactions, name="paytm-transactions"),
+    path('upi-transactions', dashboard.upiTransactions, name="upi-transactions"),
     path('bitcoin-transactions', dashboard.bitcoinTransactions, name="bitcoin-transactions"),
     path('ethereum-transactions', dashboard.ethereumTransactions, name="ethereum-transactions"),
 ]

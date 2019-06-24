@@ -7,22 +7,22 @@
 		<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="keywords" content="{% block keywords %}{% endblock %}" />
-		<meta name="description" content="{% block description %}{% endblock %}" />
+		<meta name="description" content="SMMPanel is a platform that enables you to optimize and boost your Social Media Profiles. SMMPanel is a unique tool that is a part of every succesful Digital Marketer's toolbox. Come and be a part of our ever growing platform and it's community. " />
 		<link rel="canonical" href="https://smmpanel.guru" />
-		<meta property="og:url" content="{{pageUrl}}">
-		<meta property="og:image" content="{{imageUrl}}">
-		<meta property="og:description" content="{{description}}">
-		<meta property="og:title" content="{{pageTitle}}">
-		<meta property="og:site_name" content="{{siteTitle}}">
-		<meta property="og:see_also" content="{{homepageUrl}}">
-		<meta itemprop="name" content="{{pageTitle}}">
-		<meta itemprop="description" content="{{description}}">
-		<meta itemprop="image" content="{{imageUrl}}">
+		<meta property="og:url" content="https://smmpanel.guru">
+		<meta property="og:image" content="{% static 'img/og-image.png' %}">
+		<meta property="og:description" content="SMMPanel is a platform that enables you to optimize and boost your Social Media Profiles. SMMPanel is a unique tool that is a part of every succesful Digital Marketer's toolbox. Come and be a part of our ever growing platform and it's community.">
+		<meta property="og:title" content="SMMPanel.GURU - Complete Digital Marketing Tool">
+		<meta property="og:site_name" content="SMMPanel.GURU">
+		<meta property="og:see_also" content="https://smmpanel.guru">
+		<meta itemprop="name" content="SMMPanel.GURU">
+		<meta itemprop="description" content="SMMPanel is a platform that enables you to optimize and boost your Social Media Profiles. SMMPanel is a unique tool that is a part of every succesful Digital Marketer's toolbox. Come and be a part of our ever growing platform and it's community.">
+		<meta itemprop="image" content="{% static 'img/og-image.png' %}">
 		<meta name="twitter:card" content="summary">
-		<meta name="twitter:url" content="{{pageUrl}}">
-		<meta name="twitter:title" content="{{pageTitle}}">
-		<meta name="twitter:description" content="{{description}}">
-		<meta name="twitter:image" content="{{imageUrl}}">
+		<meta name="twitter:url" content="https://smmpanel.guru">
+		<meta name="twitter:title" content="Complete Digital Marketing Tool">
+		<meta name="twitter:description" content="SMMPanel is a platform that enables you to optimize and boost your Social Media Profiles. SMMPanel is a unique tool that is a part of every succesful Digital Marketer's toolbox. Come and be a part of our ever growing platform and it's community.">
+		<meta name="twitter:image" content="{% static 'img/og-image.png' %}">
 		<link rel="preload" as="style" href="{% static 'css/main.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 		<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
@@ -36,9 +36,6 @@
 	    {% for message in messages %}
 	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
 	    {% endfor %}
-	    <div id="close-messages">
-	    	<i class="fas fa-times"></i>
-	    </div>
 	</ul>
 	{% endif %}
 		<div id="preloader">

@@ -3,7 +3,7 @@
 {% block content %}
 <div id="dashboard-container">
 	<a id="back-button" href="{% url 'transactions' %}"><i class="fas fa-chevron-left"></i> Back</a>
-	<p class="card-title">PayTM Transactions</p>
+	<p class="card-title">UPI Transactions</p>
 	{% if transactions %}
 	<ul class="transactions-list-history">
 		{% for transaction in transactions %}
@@ -22,7 +22,7 @@
 	</ul>
 	{% else %}
 	<div class="add-guidelines">
-		<p><b>You have no transactions in PayTM. You can add balance using PayTM. Just pay to PayTM number '+91 9811809881', and fill up the form  on page <a href="{% url 'add-paytm' %}">Add funds using PayTM</a></b></p>
+		<p><b>You have no transactions in UPI. You can add balance using UPI. Just pay to UPI ID <b>smmpanel.guru@ybl</b>, and fill up the form  on page <a href="{% url 'add-upi' %}">Add funds using UPI</a></b></p>
 	</div>
 	{% endif %}
 </div>

@@ -23,16 +23,19 @@
 		<input type="hidden" id="price_deduct" name="usd" value="">
 		<div class="form-field">
 			<label for="wallet-id">Service</label>
+			<!--<p class="hint">Please select the desired service from the dropdown below. If you have any questions, or want to provide any suggestion or feedback, please mail us at admin@smmpanel.guru</p>-->
 			<select name="service_name" id="services_select" required>
 				<option value="">Select a service from the dropdown</option>
 			</select>
 		</div>
 		<div class="form-field">
-			<label for="link">Link</label>
+			<label for="link" title="Please double check the link you enter. Although, we try our best to check if the link is working. We do not provide refund for the wrong link entered.">Link</label>
+			<!--<p class="hint">Please double check the link you enter. Although, we try our best to check if the link is working. We do not provide refund for the wrong link entered.</p>-->
 			<input id="link" name="link" type="text" placeholder="Please enter your profile or post link" required>
 		</div>
 		<div class="form-field">
 			<label for="order_quantity">Quantity</label>
+			<!--<p class="hint">Please enter within the range of minimum and maximum. Please note that decimals are not allowed in Quantity.</p>-->
 			<input id="order_quantity" name="quantity" type="number" placeholder="Please enter the quantity" required>
 		</div>
 		<p id="quantity-error"></p>

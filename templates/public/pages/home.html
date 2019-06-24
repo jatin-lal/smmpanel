@@ -1,13 +1,20 @@
 {% extends 'public/base.html' %}
 {% load static %}
-{% block title %}SMMPanel - World's fatest growing SMM Panel{% endblock %}
+{% block title %}SMMPanel - Complete Digital Marketing Tool{% endblock %}
+
+{% block description %}Get Facebook likes, Twitter followers, Tik Tok followers, Instagram Hearts, Instagram followers and so on.{% endblock %}
 {% block content %}
 <div id="banner">
 	<div id="banner-vertical">
 		<div id="banner-container">
 			<div id="banner-box">
-				<p class="banner-title">SMMPanel.guru - Fastest way to grow your business</p>
-				<p class="banner-content">Are you looking for a way to boost your Social Networking Profiles ? We deliver a number of services that can help you boost your business.</p>
+				<div class="banner-title">
+					<h1>SMMPanel</h1>
+					<p>.guru - Fastest way to grow your business</p>
+				</div>
+				<div class="banner-content">
+					<p>If you are looking for a way to boost your Social Networking Profiles, </p><h2>get followers in twitter</h2><p>, want &nbsp;</p><h2>facebook likes to buy</h2><p>, We deliver a number of services that can help you boost your business.</p>
+				</div>
 				{% if user.is_authenticated %}
 				<div class="go-to-dashboard">
 					<a href="{% url 'dashboard-home' %}">Go to dashboard <i class="fas fa-play"></i></a>
