@@ -45,7 +45,7 @@ class Paypal(models.Model):
 	def __str__(self):
 		return self.email + " : " + str(self.amount) + " USD"
 
-class PayTM(models.Model):
+class Upi(models.Model):
 	id = models.AutoField(primary_key = True)
 	number = models.CharField(max_length = 200)
 	amount = models.DecimalField(default = 0, decimal_places = 2, max_digits = 20)

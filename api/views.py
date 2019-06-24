@@ -4,7 +4,7 @@ from requests import post
 from telethon import TelegramClient, events, sync
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from dashboard.models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, PayTM, Profile
+from dashboard.models import Status, OrderStatus, Order, Bitcoin, Ethereum, Paypal, Upi, Profile
 from django.contrib.auth.models import User
 from django.contrib import messages
 from telegram.models import Members
