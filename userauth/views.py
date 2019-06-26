@@ -50,19 +50,6 @@ def register(request):
 				profile.verify_email_slug = temp_slug
 				profile.save()
 
-				"""plaintext = get_template('mail/verify-email.txt')
-				htmly = get_template('mail/verify-email.html')
-
-				subject, from_email, to = 'Verify your Email ID with SMMPanel', 'admin@smmpanel.guru', email_address
-				print("Trying to send Email to " + email_address)
-
-				text_content = plaintext.render({ 'email': email_address, 'slug': temp_slug })
-				html_content = htmly.render({ 'email': email_address, 'slug': temp_slug })
-
-				msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-				msg.attach_alternative(html_content, "text/html")
-				msg.send()"""
-
 				send_mail(
 				    'Please Verify your account',
 				    'You have just signed up on SMMPanel.guru. Please confirm your Email ID by clicking on https://smmpanel.guru/verify-email/' + temp_slug,
@@ -72,21 +59,12 @@ def register(request):
 				)
 
 				send_mail(
-<<<<<<< HEAD
-				    '',
-				    'Good news, ' + email_address + ' just signed up on our SMM Panel. A confirmation mail has been sent to him.'
-				    'admin@smmpanel.guru',
-				    [email_address],
-				    fail_silently=False,
-				)
-=======
-                                    'New sign up on SMMPanel.guru',
-                                    email_address + ' just signed up on SMMPanel.guru. A moment of joy, more and more people are joining SMMPanel.guru.',
-                                    'admin@smmpanel.guru',
-                                    ['techreality4u@gmail.com'],
-                                    fail_silently=False,
-                                )
->>>>>>> 2680a95fa39cc98107b43a67073db6a9e9811a63
+                    'New sign up on SMMPanel.guru',
+                    email_address + ' just signed up on SMMPanel.guru. A moment of joy, more and more people are joining SMMPanel.guru.',
+                    'admin@smmpanel.guru',
+                    ['techreality4u@gmail.com'],
+                    fail_silently=False,
+                )
 
 				return HttpResponseRedirect('/dashboard')
 			else:
