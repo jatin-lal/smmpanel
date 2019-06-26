@@ -171,7 +171,7 @@ def upi(request):
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
 	if request.method == 'POST':
-		number = request.POST.get('number')
+		upi_id = request.POST.get('upi-id')
 		amount = request.POST.get('amount')
 		txn_id = request.POST.get('txn-id')
 		username = User.objects.get(username = request.user.username)
@@ -179,7 +179,7 @@ def upi(request):
 		usd_value = request.POST.get('usd_value')
 
 		txn = Upi(
-			number = number,
+			upi_id = upi_id,
 			amount = amount,
 			user_id = username,
 			transaction_id = txn_id,
@@ -216,6 +216,14 @@ def paypal(request):
 		)
 
 		txn.save()
+		send_mail(
+			'Someone claimed to have paid through Paypal',
+			username + ' has claimed to have paid ' + amount + ' Dollars to SMMPanel.GURU. The Txn. ID is provided as ' + txn_id + ', and the sender Email ID as' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
+			'admin@smmpanel.guru',
+			[email_address],
+			fail_silently=False,
+		)
+
 		return HttpResponseRedirect('/dashboard/paypal-transactions')
 	else:
 		return render(request, 'dashboard/add-funds/paypal.html', {
@@ -248,7 +256,7 @@ def bitcoin(request):
 
 		txn.save()
 
-		return HttpResponseRedirect('/dashboard/bitcoin-transactions')	
+		return HttpResponseRedirect('/dashboard/bitcoin-transactions')
 	else:
 		return render(request, 'dashboard/add-funds/bitcoin.html', {
 		'balance': balance,

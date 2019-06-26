@@ -47,7 +47,7 @@ class Paypal(models.Model):
 
 class Upi(models.Model):
 	id = models.AutoField(primary_key = True)
-	number = models.CharField(max_length = 200)
+	upi_id = models.CharField(max_length = 200, default="")
 	amount = models.DecimalField(default = 0, decimal_places = 2, max_digits = 20)
 	user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 	transaction_id = models.CharField(max_length = 200)

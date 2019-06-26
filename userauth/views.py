@@ -64,12 +64,21 @@ def register(request):
 				msg.send()"""
 
 				send_mail(
-				    '',
-				    'Link to verify Email ID <a href="https://smmpanel.guru/verify-email/' + temp_slug + '">Verify Email ID</a>',
+				    'Please Verify your account',
+				    'You have just signed up on SMMPanel.guru. Please confirm your Email ID by clicking on https://smmpanel.guru/verify-email/' + temp_slug,
 				    'admin@smmpanel.guru',
 				    [email_address],
 				    fail_silently=False,
 				)
+
+				send_mail(
+                                    'New sign up on SMMPanel.guru',
+                                    email_address + ' just signed up on SMMPanel.guru. A moment of joy, more and more people are joining SMMPanel.guru.',
+                                    'admin@smmpanel.guru',
+                                    ['techreality4u@gmail.com'],
+                                    fail_silently=False,
+                                )
+
 				return HttpResponseRedirect('/dashboard')
 			else:
 				messages.add_message(request, messages.ERROR, 'Looks like a username with that email or password already exists.')
