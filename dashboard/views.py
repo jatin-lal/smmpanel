@@ -7,6 +7,7 @@ from telegram.models import Members
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
+from django.core.mail import send_mail
 
 @login_required
 def home(request):
@@ -220,7 +221,7 @@ def paypal(request):
 			'Someone claimed to have paid through Paypal',
 			username + ' has claimed to have paid ' + amount + ' Dollars to SMMPanel.GURU. The Txn. ID is provided as ' + txn_id + ', and the sender Email ID as' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
 			'admin@smmpanel.guru',
-			[email_address],
+			['techreality4u@gmail.com'],
 			fail_silently=False,
 		)
 
