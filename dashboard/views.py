@@ -153,7 +153,8 @@ def ico(request):
 	if not Profile.objects.get(user = User.objects.get(username = request.user.username)).email_verified:
 		return HttpResponseRedirect("/email-not-verified")
 	return render(request, 'dashboard/pages/ico-services.html', {
-		'balance': balance
+		'balance': balance,
+		'curr': 'ico-services'
 	})
 
 @login_required
