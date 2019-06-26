@@ -304,7 +304,7 @@ if (document.getElementById('order_quantity')) {
 	    if (opt > 0) {
 	    	min = sel.options[sel.selectedIndex].dataset.min;
 	    	max = sel.options[sel.selectedIndex].dataset.max;
-	        document.getElementById('ppk').innerHTML = "<p>Charges per thousand is " + parseFloat(opt).toFixed(5).toString() + "$</p><p>Minimum quantity is " + sel.options[sel.selectedIndex].dataset.min + "</p><p>Maximum quantity is " + sel.options[sel.selectedIndex].dataset.max + "</p>";
+	        document.getElementById('ppk').innerHTML = "<p>Charges per thousand is " + parseFloat(opt).toString() + "$</p><p>Minimum quantity is " + sel.options[sel.selectedIndex].dataset.min + "</p><p>Maximum quantity is " + sel.options[sel.selectedIndex].dataset.max + "</p>";
 	    } else {
 	        document.getElementById('ppk').innerHTML = "";
 	    }
