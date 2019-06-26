@@ -64,7 +64,7 @@ def contact(request):
 	    full_name + ' contacted by footer contact page',
 	    email_id + ' sent query \n\n ' + query,
 	    'admin@smmpanel.guru',
-	    ['jatinlal1994@gmail.com'],
+	    ['techreality4u@gmail.com'],
 	    fail_silently=False,
 	)
 	messages.add_message(request, messages.INFO, 'Thanks for contacting, We will reach out to you within next 24 hours')
