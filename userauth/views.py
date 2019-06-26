@@ -70,6 +70,15 @@ def register(request):
 				    [email_address],
 				    fail_silently=False,
 				)
+
+				send_mail(
+				    '',
+				    'Good news, ' + email_address + ' just signed up on our SMM Panel. A confirmation mail has been sent to him.'
+				    'admin@smmpanel.guru',
+				    [email_address],
+				    fail_silently=False,
+				)
+
 				return HttpResponseRedirect('/dashboard')
 			else:
 				messages.add_message(request, messages.ERROR, 'Looks like a username with that email or password already exists.')

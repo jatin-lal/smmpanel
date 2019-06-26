@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "build-css": "node-sass --include-path scss raws/scss/main.scss dist/css/main.css --output-style compressed",
+    "build-admin-css": "node-sass --include-path scss raws/scss/admin.scss dist/css/admin.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-admin-css": "nodemon -e scss -x \"npm run build-admin-css\"",
     "build-js": "webpack --mode production",
     "watch-js": "nodemon -e scss -x \"npm run build-js\""
   },
