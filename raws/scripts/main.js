@@ -26,6 +26,28 @@
 		}
 	}
 
+	if (document.getElementById("dashboard-menu-button")) {
+		document.getElementById("dashboard-menu-button").onclick = function(event) {
+			event.preventDefault();
+			underlay = document.getElementById("side-nav-underlay");
+			sidenav = document.getElementById("side-nav");
+			if (underlay.classList.contains('open')) {
+				underlay.classList.remove("open");
+				sidenav.classList.remove("open");
+				setTimeout(function() {
+					underlay.style.display = "none";
+				}, 510);
+			}
+			else{
+				underlay.style.display = "block";
+				setTimeout(function() {
+					underlay.classList.add("open");
+					sidenav.classList.add("open");
+				}, 10);
+			}
+		}
+	}
+
 	if (document.getElementById('paytm-page')) {
 		document.getElementById('amount').oninput = function(){
 			document.getElementById('amount_in_usd').innerHTML = "Around <b>" + (this.value / 72).toFixed(2) + " USD</b> will be added to your account ";

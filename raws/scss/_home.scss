@@ -3,10 +3,10 @@
 		#banner-container{width: 100%;max-width: 650px;padding: 0 15px;box-sizing: border-box;margin: 0 auto;
 			#banner-box{text-align: center;
 				.banner-title{
-					p, h1{color: #fff;font-size: 22px;font-weight: bold;margin-bottom: 8px;display: inline-block;}
+					p, h1{color: #fff;font-size: 22px;font-weight: bold;margin-bottom: 8px;display: inline;}
 				}
 				.banner-content{
-					h2, p{color: #f6f6f6;font-size: 16px;display: inline-block;font-weight: 400;}
+					h2, p{color: #f6f6f6;font-size: 16px;display: inline;font-weight: 400;}
 				}
 				#request-proposal-container{margin-top: 15px;
 					#request-proposal{background-color: #fff;color: $theme;padding: 5px 10px;display: inline-block;border-radius: 4px;cursor: pointer;color: #333;

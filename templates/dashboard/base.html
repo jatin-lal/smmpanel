@@ -16,6 +16,7 @@
 		{% include 'important.html' %}
 	</head>
 	<body bgcolor="#763568">
+		<div id="side-nav-underlay"></div>
 		{% if messages %}
 		<ul class="messages" id="error-message">
 		    {% for message in messages %}
@@ -28,6 +29,9 @@
 		{% endif %}
 		<div id="top-nav">
 			<div class="left">
+				<div id="dashboard-menu-button">
+					<i class="fas fa-bars"></i>
+				</div>
 				<div id="dashboard-logo">
 					<a id="logo" href="{% url 'home' %}">
 						<div id="logo-img">
