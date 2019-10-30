@@ -26,8 +26,10 @@
 		<link rel="preload" as="style" href="{% static 'css/main.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 		<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 		<style>#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#fff;display:table;z-index:15;transition:250ms;opacity:1}#preloader #preloader-vertical{display:table-cell;vertical-align:middle}#preloader .preloader-text{font-size:12px;font-weight:bold;margin-top:15px}#preloader.closing{opacity:0}</style>
+		{% block meta %}{% endblock %}
 		{% include 'important.html' %}
 	</head>
 	<body bgcolor="#191919">
@@ -172,8 +174,7 @@
 						</div>
 						<div class="right">
 							<a href="mailto:admin@smmpanel.guru"><i class="fas fa-envelope"></i> admin@smmpanel.guru</a>
-							<a href="https://t.me/streak9"><i class="fab fa-telegram-plane"></i> https://t.me/streak9</a>
-							<!--<a href="skype:smmpanel"><i class="fab fa-skype"></i> live:smmpanel</a>-->
+							<a href="https://t.me/smmpanelguruofficial" target="_blank"><i class="fab fa-telegram-plane"></i> https://t.me/smmpanelguruofficial</a>
 						</div>
 					</div>
 				</div>

@@ -195,7 +195,7 @@ def upi(request):
 			'Someone claimed to have paid through UPI',
 			username + ' has claimed to have paid ' + amount + ' INR to SMMPanel.GURU. The amount equals ' + usd_value + ' $. Transaction ID is provided as ' + txn_id + ', and the Email ID his account is ' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
 			'admin@smmpanel.guru',
-			['techreality4u@gmail.com'],
+			['jatinlal1994@gmail.com'],
 			fail_silently=False,
 		)
 
@@ -232,7 +232,7 @@ def paypal(request):
 			'Someone claimed to have paid through Paypal',
 			username + ' has claimed to have paid ' + amount + ' Dollars to SMMPanel.GURU. The Txn. ID is provided as ' + txn_id + ', and the sender Email ID as ' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
 			'admin@smmpanel.guru',
-			['techreality4u@gmail.com'],
+			['jatinlal1994@gmail.com'],
 			fail_silently=False,
 		)
 
@@ -272,7 +272,7 @@ def bitcoin(request):
 			'Someone claimed to have paid through Bitcoin',
 			username + ' has claimed to have paid ' + amount + ' BTC to SMMPanel.GURU. The Txn. This equals ' + usd_value + ' $. Transaction ID is provided as ' + txn_id + ', and the Email ID his account is ' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
 			'admin@smmpanel.guru',
-			['techreality4u@gmail.com'],
+			['jatinlal1994@gmail.com'],
 			fail_silently=False,
 		)
 
@@ -310,7 +310,7 @@ def ethereum(request):
 			'Someone claimed to have paid through Ethers',
 			username + ' has claimed to have paid ' + amount + ' ETH to SMMPanel.GURU. The Txn. This equals ' + usd_value + ' $. Transaction ID is provided as ' + txn_id + ', and the Email ID his account is ' + email_id + '. Please check the transaction and complete the transaction as Cancelled or Complete in Admin Panel',
 			'admin@smmpanel.guru',
-			['techreality4u@gmail.com'],
+			['jatinlal1994@gmail.com'],
 			fail_silently=False,
 		)
 

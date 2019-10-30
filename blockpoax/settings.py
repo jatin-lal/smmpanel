@@ -54,7 +54,7 @@ MIDDLEWARE = [
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'admin@smmpanel.guru'
-EMAIL_HOST_PASSWORD = 'OrionNebula100!'
+EMAIL_HOST_PASSWORD = 'AlphaCentauri1994@'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

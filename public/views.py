@@ -14,13 +14,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 def home(request):
 	form = UserRegistrationForm()
-	"""send_mail(
-	    'Subject here',
-	    'Here is the message that is sent to confirm whether the Zoho Mail integration with the website SMMPanel.guru is working or not.',
-	    'admin@smmpanel.guru',
-	    ['jatinlal1994@gmail.com'],
-	    fail_silently=False,
-	)"""
 	return render(request, 'public/pages/home.html', {
 		'form': form
 	})
@@ -64,7 +57,7 @@ def contact(request):
 	    full_name + ' contacted by footer contact page',
 	    email_id + ' sent query \n\n ' + query,
 	    'admin@smmpanel.guru',
-	    ['techreality4u@gmail.com'],
+	    ['jatinlal1994@gmail.com'],
 	    fail_silently=False,
 	)
 	messages.add_message(request, messages.INFO, 'Thanks for contacting, We will reach out to you within next 24 hours')

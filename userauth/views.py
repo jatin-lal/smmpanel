@@ -62,7 +62,7 @@ def register(request):
                     'New sign up on SMMPanel.guru',
                     email_address + ' just signed up on SMMPanel.guru. A moment of joy, more and more people are joining SMMPanel.guru.',
                     'admin@smmpanel.guru',
-                    ['techreality4u@gmail.com'],
+                    ['jatinlal1994@gmail.com'],
                     fail_silently=False,
                 )
 

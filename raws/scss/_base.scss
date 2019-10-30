@@ -13,19 +13,19 @@ a, input, button, textarea, select{
 	&, &:active, &:focus{border: none;outline: none;}
 }
 #nav{height: 48px;position: fixed;top: 0;left: 0;width: 100%;background: transparent;z-index: 5;transition: 250ms;box-shadow: 0 0 0 0 rgba(0,0,0,0.5);box-sizing: border-box;
-	&.down{background: #000;box-shadow: 0 0 0 0 rgba(0,0,0,0.5);}
+	&.down{background: #ffffff;box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);}
 }
-#content{background-color: #ffffff;width: 100vw;overflow-x: hidden;padding-bottom: 75px;position: relative;}
+#content{background-color: #f6f6f6;width: 100vw;overflow-x: hidden;padding-bottom: 75px;position: relative;}
 #nav, #footer{}
 #nav{
-	#logo{background: #f4f5f5;display: inline-block;border-radius: 4px;margin: 4px 0;
+	#logo{display: inline-block;border-radius: 4px;margin: 4px 0;
 		a{display: block;
-			p{float: left;line-height: 40px;padding-right: 8px;font-size: 24px;color: #333;}
-			span{font-weight: bold;color: #0098db;text-transform: uppercase;}
+			p{float: left;line-height: 40px;padding-right: 8px;font-size: 24px;color: #fff;font-family: 'Lobster', cursive;}
+			span{font-weight: bold;color: #fff;font-size: 0.5em;}
 			&:after{clear: both;display: block;content: "";}
 		}
 	}
-	#logo-img{float: left;margin: 0;
+	#logo-img{float: left;margin: 0;margin-right: 5px;
 		img{height: 36px;vertical-align: middle;border-radius: 5px;margin: 1px 4px 3px 4px;}
 	}
 	.row:after{clear: both;display: block;content: "";}
@@ -33,6 +33,13 @@ a, input, button, textarea, select{
 	.right{
 		#login-username{
 			line-height: 48px;
+		}
+	}
+	&.down{
+		#logo{
+			p{color: #333;
+				span{color: #0098db;}
+			}
 		}
 	}
 }
@@ -86,7 +93,7 @@ a, input, button, textarea, select{
 	}
 	.footer-description{padding: 40px 0;
 		.title{font-size: 18px;font-weight: bold;color: #fff;margin-bottom: 8px;}
-		.text{font-size: 14px;color: #eee;border-left: 2px solid #eee;padding-left: 8px;margin-left: 10px;font-weight: bold; 
+		.text{font-size: 14px;color: #eee;border-left: 2px solid #eee;padding-left: 12px;margin-left: 10px;font-weight: bold; 
 			&:not(first){padding-top: 8px;padding-bottom: 8px;}
 		}
 	}
