@@ -17,5 +17,5 @@ six==1.12.0
 soupsieve==1.9.1
 sqlparse==0.3.0
 Telethon-sync==1.1.1
-urllib3==1.25.2
+urllib3==1.25.8
 webencodings==0.5.1
