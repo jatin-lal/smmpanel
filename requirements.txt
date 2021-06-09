@@ -1,7 +1,7 @@
 beautifulsoup4==4.7.1
 certifi==2019.3.9
 chardet==3.0.4
-Django==2.2.1
+Django==2.2.22
 django-cors-headers==3.0.1
 django-debug-toolbar==1.11
 django-htmlmin==0.11.0
